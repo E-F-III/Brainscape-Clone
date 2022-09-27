@@ -17,7 +17,6 @@ Leitner-scape is a clone of the webapp "BrainScape" known for allowing students 
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-100000?style=for-the-badge&logo=sql&logoColor=BA1212&labelColor=AD0000&color=A90000)&nbsp;
 
 ## Wiki Links:
-
 * [Database Schema](https://github.com/E-F-III/Brainscape-Clone/wiki/Database-Schema)
 * [User Stories](https://github.com/E-F-III/Brainscape-Clone/wiki/User-Stories)
 * [API Routes](https://github.com/E-F-III/Brainscape-Clone/wiki/API-Routes)
