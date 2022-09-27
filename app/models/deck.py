@@ -9,8 +9,8 @@ class Deck(db.model):
     title = db.Column(db.String(100))
     description = db.Column(db.String(5000))
 
-    owner = db.relationship("User", back_populates='decks', cascade="all, delete-orphan")
-    deck = db.relationship("Deck", back_populates='decks', cascade="all, delete-orphan")
+    owner = db.relationship("User", back_populates='decks')
+    assigned_class = db.relationship("Class", back_populates='decks')
 
     def to_dict(self):
         return {

@@ -8,7 +8,8 @@ class Class(db.model):
     title = db.Column(db.String(100))
     description = db.Column(db.String(5000))
 
-    owner = db.relationship("User", back_populates='classes', cascade="all, delete-orphan")
+    owner = db.relationship("User", back_populates='classes')
+    decks = db.relationship("Deck", back_populates='assigned_class', cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
