@@ -3,7 +3,6 @@ Leitner-scape is a clone of the webapp "BrainScape" known for allowing students 
 
 ## This project was developed utilizing:
 
-
 ### Frontend
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)&nbsp;
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)&nbsp;
