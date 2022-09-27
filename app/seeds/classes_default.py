@@ -1,4 +1,3 @@
-from turtle import title
 from app.models import db, Class
 
 def seed_classes_default():
