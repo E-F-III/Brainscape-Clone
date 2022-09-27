@@ -8,6 +8,8 @@ class Class(db.model):
     title = db.Column(db.String(100))
     description = db.Column(db.String(5000))
 
+    owner = db.relationship("User", back_populates='classes')
+
     def to_dict(self):
         return {
             'id': self.id,
