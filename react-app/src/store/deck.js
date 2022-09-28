@@ -107,7 +107,7 @@ const deckReducer = (state = initialState, action) => {
     let newState = { ...state }
     switch (action.type) {
         case GET_DECKS: {
-            action.payload.classes.forEach(deck => {
+            action.payload.decks.forEach(deck => {
                 newState[deck.id] = { ...newState[deck.id], ...deck }
             })
         }

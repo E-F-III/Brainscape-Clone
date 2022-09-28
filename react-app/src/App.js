@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 
 import UserClassList from './components/testComponents/sessionClasses';
+import DeckList from './components/testComponents/decks';
 
 import { authenticate } from './store/session';
 
@@ -36,6 +37,9 @@ function App() {
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
+        </Route>
+        <Route path='/classes/:classId/decks'>
+          <DeckList />
         </Route>
         <ProtectedRoute path='/dashboard'>
           <UserClassList />

@@ -1,6 +1,7 @@
 from flask import Blueprint
 from flask_login import current_user, login_required
 from app.models import Class
+from app.models import Deck
 
 class_routes = Blueprint('classes', __name__)
 
@@ -16,7 +17,18 @@ def validation_errors_to_error_messages(validation_errors):
 
 @class_routes.route('/session')
 @login_required
-def get_businesses_of_current_user():
+def get_classes_of_current_user():
     classes = Class.query.filter(Class.owner_id == current_user.id).all()
 
     return {'classes': [singleClass.to_dict() for singleClass in classes]}
+
+@class_routes.route('/<int:id>/decks')
+def get_decks_of_a_class(id):
+    single_class = Class.query.get(id)
+
+    if not single_class:
+        return {"message": "Deck could not be found", "statusCode": 404}, 404
+
+    decks = Deck.query.filter(Deck.class_id == id).all()
+
+    return { 'decks': [deck.to_dict() for deck in decks] }
