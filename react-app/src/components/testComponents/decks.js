@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
 import DeckForm from './createDeckForm'
+import UpdateDeckForm from './UpdateDeckForm'
 
 import { getClassDecksThunk } from '../../store/deck'
 
@@ -28,7 +29,11 @@ function DeckList() {
             <div>
                 {
                     classList.map(deck => (
-                        <div>{deck.title}</div>
+                        <>
+                            <div>{deck.title}</div>
+                            <div>{deck.description}</div>
+                            <UpdateDeckForm deck={deck} />
+                        </>
                     ))
                 }
             </div>

@@ -30,14 +30,10 @@ def update_deck(id):
 
     form = DeckForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    print('\n\n\n\n\n\n\n\n', form.data)
     if form.validate_on_submit:
-        deck = Deck(
-            owner_id = current_user.id,
-            class_id = id,
-            title = form.title.data,
-            description = form.description.data
-        )
+        deck.title = form.title.data
+        deck.description = form.description.data
 
         db.session.add(deck)
         db.session.commit()

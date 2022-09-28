@@ -72,7 +72,7 @@ export const updateDeckThunk = payload => async dispatch => {
         {
             method: "PUT",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(payload.deck)
+            body: JSON.stringify(payload.deckData)
         })
     const data = await response.json()
 
