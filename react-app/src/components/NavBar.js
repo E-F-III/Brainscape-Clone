@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 import LoginFormModal from './auth/LoginFormModal';
 import LogoutButton from './auth/LogoutButton';
+import SignUpFormModal from './auth/SignUpFormModal';
 
 import './NavBar.css'
 
@@ -27,6 +28,7 @@ const NavBar = () => {
       </div>
       <div id=''>
         <LoginFormModal />
+        <SignUpFormModal />
         {/* <LogoutButton /> */}
       </div>
 
