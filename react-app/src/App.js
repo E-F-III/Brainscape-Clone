@@ -12,6 +12,7 @@ import UserClassList from './components/testComponents/sessionClasses';
 import DeckList from './components/testComponents/decks';
 
 import { authenticate } from './store/session';
+import CardList from './components/testComponents/cards';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -41,6 +42,9 @@ function App() {
         {/* Test Components, refactor later */}
         <Route path='/classes/:classId/decks'>
           <DeckList />
+        </Route>
+        <Route path='/decks/:deckId/cards'>
+          <CardList />
         </Route>
         <ProtectedRoute path='/dashboard'>
           <UserClassList />

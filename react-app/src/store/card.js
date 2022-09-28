@@ -1,98 +1,98 @@
 // Action Types
 
-const GET_DECKS = "decks/get-decks-by-class"
+const GET_CARDS = "cards/get-cards-by-deck"
 
-const CREATE_DECK = "decks/create-deck"
-const UPDATE_DECK = "decks/update-deck"
-const DELETE_DECK = "decks/delete-deck"
+const CREATE_CARD = "cards/create-card"
+const UPDATE_CARD = "cards/update-card"
+const DELETE_CARD = "cards/delete-card"
 
 // Action Creators
 
-const getClassDecksAction = payload => {
+const getDeckCardsAction = payload => {
     return {
-        type: GET_DECKS,
+        type: GET_CARDS,
         payload
     }
 }
 
-const createDeckAction = payload => {
+const createCardAction = payload => {
     return {
-        type: CREATE_DECK,
+        type: CREATE_CARD,
         payload
     }
 }
 
-const updateDeckAction = payload => {
+const updateCardAction = payload => {
     return {
-        type: UPDATE_DECK,
+        type: UPDATE_CARD,
         payload
     }
 }
 
-const deleteDeckAction = payload => {
+const deleteCardAction = payload => {
     return {
-        type: DELETE_DECK,
+        type: DELETE_CARD,
         payload
     }
 }
 
 // Thunk Action Creators
 
-export const getClassDecksThunk = payload => async dispatch => {
-    const response = await fetch(`/api/classes/${payload.classId}/decks`)
+export const getDeckCardsThunk = payload => async dispatch => {
+    const response = await fetch(`/api/decks/${payload.deckId}/cards`)
     const data = await response.json()
 
     if (response.ok) {
-        await dispatch(getClassDecksAction(data))
+        await dispatch(getDeckCardsAction(data))
     }
 
     return data
 }
 
-export const createDeckThunk = payload => async dispatch => {
+export const createCardThunk = payload => async dispatch => {
     const response = await fetch(
-        `/api/classes/${payload.classId}/decks`,
+        `/api/decks/${payload.deckId}/cards`,
         {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(payload.deck)
+            body: JSON.stringify(payload.cardData)
         })
     const data = await response.json()
 
     if (response.ok) {
-        await dispatch(createDeckAction(data))
+        await dispatch(createCardAction(data))
     }
 
     return data
 }
 
-export const updateDeckThunk = payload => async dispatch => {
+export const updateCardThunk = payload => async dispatch => {
     const response = await fetch(
-        `/api/decks/${payload.deckId}`,
+        `/api/cards/${payload.cardId}`,
         {
             method: "PUT",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(payload.deckData)
+            body: JSON.stringify(payload.cardData)
         })
     const data = await response.json()
 
     if (response.ok) {
-        await dispatch(updateDeckAction(data))
+        await dispatch(updateCardAction(data))
     }
 
     return data
 }
 
-export const deleteDeckThunk = payload => async dispatch => {
+export const deleteCardThunk = payload => async dispatch => {
     const response = await fetch(
-        `/api/decks/${payload.deckId}`,
+        `/api/cards/${payload.cardId}`,
         {
             method: "DELETE",
         })
     const data = await response.json()
 
     if (response.ok) {
-        await dispatch(deleteDeckAction(payload.deckId))
+        await dispatch(deleteCardAction(payload.cardId))
     }
 
     return data
@@ -103,25 +103,25 @@ export const deleteDeckThunk = payload => async dispatch => {
 
 const initialState = {}
 
-const deckReducer = (state = initialState, action) => {
+const cardReducer = (state = initialState, action) => {
     let newState = { ...state }
     switch (action.type) {
-        case GET_DECKS: {
+        case GET_CARDS: {
             newState = {}
-            action.payload.decks.forEach(deck => {
-                newState[deck.id] = { ...newState[deck.id], ...deck }
+            action.payload.cards.forEach(card => {
+                newState[card.id] = { ...newState[card.id], ...card }
             })
             return newState
         }
-        case CREATE_DECK: {
+        case CREATE_CARD: {
             newState[action.payload.id] = action.payload
             return newState
         }
-        case UPDATE_DECK: {
+        case UPDATE_CARD: {
             newState[action.payload.id] = {...newState[action.payload.id], ...action.payload}
             return newState
         }
-        case DELETE_DECK: {
+        case DELETE_CARD: {
             newState = { ...state };
             delete newState[action.payload]
             return newState
@@ -132,4 +132,4 @@ const deckReducer = (state = initialState, action) => {
     }
 }
 
-export default deckReducer
+export default cardReducer
