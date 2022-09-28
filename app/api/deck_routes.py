@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user, login_required
-from app.models import db, Deck
+from app.models import db, Deck, Card
 from app.forms import DeckForm, CardForm
 
 deck_routes = Blueprint('decks', __name__)

@@ -77,7 +77,7 @@ export const updateCardThunk = payload => async dispatch => {
     const data = await response.json()
 
     if (response.ok) {
-        await dispatch(updateDeckAction(data))
+        await dispatch(updateCardAction(data))
     }
 
     return data
@@ -92,7 +92,7 @@ export const deleteCardThunk = payload => async dispatch => {
     const data = await response.json()
 
     if (response.ok) {
-        await dispatch(deleteDeckAction(payload.cardId))
+        await dispatch(deleteCardAction(payload.cardId))
     }
 
     return data
@@ -108,7 +108,7 @@ const cardReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_CARDS: {
             newState = {}
-            action.payload.decks.forEach(card => {
+            action.payload.cards.forEach(card => {
                 newState[card.id] = { ...newState[card.id], ...card }
             })
             return newState
