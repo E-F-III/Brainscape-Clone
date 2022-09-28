@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
+import DeckForm from './createDeckForm'
+
 import { getClassDecksThunk } from '../../store/deck'
 
 function DeckList() {
@@ -21,13 +23,16 @@ function DeckList() {
     }, [dispatch])
 
     return isLoaded && (
-        <div>
-            {
-                classList.map(deck => (
-                    <div>{deck.title}</div>
-                ))
-            }
-        </div>
+        <>
+            <DeckForm />
+            <div>
+                {
+                    classList.map(deck => (
+                        <div>{deck.title}</div>
+                    ))
+                }
+            </div>
+        </>
     )
 }
 

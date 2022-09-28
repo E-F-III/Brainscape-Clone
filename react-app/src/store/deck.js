@@ -110,6 +110,7 @@ const deckReducer = (state = initialState, action) => {
             action.payload.decks.forEach(deck => {
                 newState[deck.id] = { ...newState[deck.id], ...deck }
             })
+            return newState
         }
         case CREATE_DECK: {
             newState[action.payload.id] = action.payload

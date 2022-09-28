@@ -22,6 +22,9 @@ def get_classes_of_current_user():
 
     return {'classes': [singleClass.to_dict() for singleClass in classes]}
 
+
+
+
 @class_routes.route('/<int:id>/decks', methods=["GET"])
 def get_decks_of_a_class(id):
     single_class = Class.query.get(id)
@@ -49,7 +52,7 @@ def create_deck(id):
 
     if form.validate_on_submit:
         deck = Deck(
-            owner_id = current_user,
+            owner_id = current_user.id,
             class_id = id,
             title = form.title.data,
             description = form.description.data
