@@ -11,7 +11,7 @@ class Deck(db.Model):
 
     owner = db.relationship("User", back_populates='decks')
     assigned_class = db.relationship("Class", back_populates='decks')
-    cards = db.relationship("Card", back_populates='decks', cascade="all, delete-orphan")
+    cards = db.relationship("Card", back_populates='deck', cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
