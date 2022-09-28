@@ -11,10 +11,10 @@ def title_length(form, field):
 def description_length(form, field):
     description = field.data
 
-    if not description and len(description) > 100:
-        raise ValidationError('Title must be atmost 100 characters')
+    if description and len(description) > 5000:
+        raise ValidationError('Title must be atmost 5000 characters')
 
 
 class DeckForm(FlaskForm):
-    title = StringField('title', validators=[DataRequired()])
-    description = StringField('description', validators=[])
+    title = StringField('title', validators=[DataRequired(), title_length])
+    description = StringField('description', validators=[description_length])

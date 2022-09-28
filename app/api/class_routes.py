@@ -1,7 +1,7 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from flask_login import current_user, login_required
-from app.models import Class
-from app.models import Deck
+from app.models import db, Class, Deck
+from app.forms import DeckForm
 
 class_routes = Blueprint('classes', __name__)
 
@@ -22,7 +22,7 @@ def get_classes_of_current_user():
 
     return {'classes': [singleClass.to_dict() for singleClass in classes]}
 
-@class_routes.route('/<int:id>/decks')
+@class_routes.route('/<int:id>/decks', methods=["GET"])
 def get_decks_of_a_class(id):
     single_class = Class.query.get(id)
 
@@ -32,3 +32,32 @@ def get_decks_of_a_class(id):
     decks = Deck.query.filter(Deck.class_id == id).all()
 
     return { 'decks': [deck.to_dict() for deck in decks] }
+
+
+
+
+@class_routes.route('/<int:id>/decks', methods=["POST"])
+@login_required
+def create_deck(id):
+    single_class = Class.query.get(id)
+
+    if not single_class:
+        return {"message": "Deck could not be found", "statusCode": 404}, 404
+
+    form = DeckForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit:
+        deck = Deck(
+            owner_id = current_user,
+            class_id = id,
+            title = form.title.data,
+            description = form.description.data
+        )
+
+        db.session.add(deck)
+        db.session.commit()
+
+        return deck.to_dict()
+
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 401
