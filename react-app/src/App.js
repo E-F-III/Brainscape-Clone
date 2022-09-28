@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
+import Splashpage from './components/Splashpage';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
@@ -18,7 +19,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -30,7 +31,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
       <Switch>
         {/* Test Components, refactor later */}
         <Route path='/classes/:classId/decks'>
@@ -43,9 +43,10 @@ function App() {
           <UserClassList />
         </ProtectedRoute>
         {/* Test Components, refactor later */}
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-        </ProtectedRoute>
+        <Route path='/' exact={true} >
+          <NavBar />
+          <Splashpage />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

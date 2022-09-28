@@ -12,24 +12,28 @@ import './NavBar.css'
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
 
-  // let sessionLinks;
-  // if (sessionUser) {
-  //   sessionLinks = (
+  let sessionLinks;
 
-  //   )
-  // }
+  if (sessionUser) {
+    sessionLinks = <LogoutButton />
+  } else {
+    sessionLinks = (
+      <>
+        <LoginFormModal />
+        <SignUpFormModal />
+      </>
+    )
+  }
 
   return (
     <nav>
       <div id='nav-bar-logo-container'>
         <NavLink to='/' exact={true} activeClassName='active'>
-          <img id='nav-bar-logo' src='https://www.brainscape.com/assets/cms/public-views/shared/Brainscape-logo.svg'/>
+          <img id='nav-bar-logo' src='https://www.brainscape.com/assets/cms/public-views/shared/Brainscape-logo.svg' />
         </NavLink>
       </div>
       <div id='auth-buttons'>
-        <LoginFormModal />
-        <SignUpFormModal />
-        {/* <LogoutButton /> */}
+        {sessionLinks}
       </div>
 
     </nav>
