@@ -14,7 +14,7 @@ const getUserClassesAction = payload => {
 // Thunk Action Creators
 
 export const getUserClassesThunk = () => async dispatch => {
-    const response = await fetch('/api/session/classes')
+    const response = await fetch('/api/classes/session')
     const data = await response.json()
 
     if (response.ok) {
@@ -35,6 +35,7 @@ const classReducer = (state = initialState, action) => {
             action.payload.classes.forEach(singleClass => {
                 newState[singleClass.id] = { ...newState[singleClass.id], ...singleClass }
             })
+            return newState
         }
         default: {
             return state
