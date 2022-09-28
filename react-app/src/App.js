@@ -7,7 +7,12 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
+
+import UserClassList from './components/testComponents/sessionClasses';
+import DeckList from './components/testComponents/decks';
+
 import { authenticate } from './store/session';
+import CardList from './components/testComponents/cards';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,12 +39,17 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+        {/* Test Components, refactor later */}
+        <Route path='/classes/:classId/decks'>
+          <DeckList />
+        </Route>
+        <Route path='/decks/:deckId/cards'>
+          <CardList />
+        </Route>
+        <ProtectedRoute path='/dashboard'>
+          <UserClassList />
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
+        {/* Test Components, refactor later */}
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
