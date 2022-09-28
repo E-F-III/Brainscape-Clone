@@ -30,7 +30,7 @@ def update_deck(id):
 
     form = DeckForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print('\n\n\n\n\n\n\n\n', form.data)
+
     if form.validate_on_submit:
         deck.title = form.title.data
         deck.description = form.description.data
@@ -41,3 +41,21 @@ def update_deck(id):
         return deck.to_dict()
 
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+
+
+
+@deck_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
+def delete_deck(id):
+    deck = Deck.query.get(id)
+
+    if not deck:
+        return {"message": "Deck could not be found", "statusCode": 404}, 404
+
+    if deck.owner_id != current_user.id:
+        return {"message": "Forbidden", "statusCode": 403}, 403
+
+    db.session.delete(deck)
+    db.session.commit()
+
+    return { "message": "Successfully deleted", "statusCode": 200 }, 200

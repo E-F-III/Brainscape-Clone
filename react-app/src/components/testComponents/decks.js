@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 
 import DeckForm from './createDeckForm'
 import UpdateDeckForm from './UpdateDeckForm'
+import DeleteDeckButton from './DeleteDeckButton'
 
 import { getClassDecksThunk } from '../../store/deck'
 
@@ -33,6 +34,7 @@ function DeckList() {
                             <div>{deck.title}</div>
                             <div>{deck.description}</div>
                             <UpdateDeckForm deck={deck} />
+                            <DeleteDeckButton deck={deck} />
                         </>
                     ))
                 }
