@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 
 import { createDeckThunk } from '../../store/deck'
@@ -25,8 +25,6 @@ function DeckForm() {
             title,
             description: null
         }
-
-        console.log(deck)
 
         const payload = { classId, deck }
 

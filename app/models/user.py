@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
 
     classes = db.relationship("Class", back_populates='owner', cascade="all, delete-orphan")
     decks = db.relationship("Deck", back_populates='owner', cascade="all, delete-orphan")
+    cards = db.relationship("Card", back_populates='owner', cascade="all, delete-orphan")
 
     @property
     def password(self):
