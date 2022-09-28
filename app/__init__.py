@@ -9,7 +9,7 @@ from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.class_routes import class_routes
-from .api.deck_routes import decks_routes
+from .api.deck_routes import deck_routes
 
 from .seeds import seed_commands
 
@@ -34,7 +34,7 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(class_routes, url_prefix='/api/classes')
-app.register_blueprint(decks_routes, url_prefix='/api/decks')
+app.register_blueprint(deck_routes, url_prefix='/api/decks')
 db.init_app(app)
 Migrate(app, db)
 

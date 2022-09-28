@@ -15,6 +15,9 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{field} : {error}')
     return errorMessages
 
+
+
+
 @class_routes.route('/session')
 @login_required
 def get_classes_of_current_user():
@@ -45,7 +48,7 @@ def create_deck(id):
     single_class = Class.query.get(id)
 
     if not single_class:
-        return {"message": "Deck could not be found", "statusCode": 404}, 404
+        return {"message": "Class could not be found", "statusCode": 404}, 404
 
     form = DeckForm()
     form['csrf_token'].data = request.cookies['csrf_token']

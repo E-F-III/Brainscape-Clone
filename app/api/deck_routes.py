@@ -1,7 +1,9 @@
-from flask import Blueprint
-from app.models import Deck
+from flask import Blueprint, request
+from flask_login import current_user, login_required
+from app.models import db, Deck
+from app.forms import DeckForm
 
-decks_routes = Blueprint('decks', __name__)
+deck_routes = Blueprint('decks', __name__)
 
 def validation_errors_to_error_messages(validation_errors):
     """
@@ -12,3 +14,34 @@ def validation_errors_to_error_messages(validation_errors):
         for error in validation_errors[field]:
             errorMessages.append(f'{field} : {error}')
     return errorMessages
+
+
+
+@deck_routes.route('/<int:id>', methods=["PUT"])
+@login_required
+def update_deck(id):
+    deck = Deck.query.get(id)
+
+    if not deck:
+        return {"message": "Deck could not be found", "statusCode": 404}, 404
+
+    if deck.owner_id != current_user.id:
+        return {"message": "Forbidden", "statusCode": 403}, 403
+
+    form = DeckForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit:
+        deck = Deck(
+            owner_id = current_user.id,
+            class_id = id,
+            title = form.title.data,
+            description = form.description.data
+        )
+
+        db.session.add(deck)
+        db.session.commit()
+
+        return deck.to_dict()
+
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 401
