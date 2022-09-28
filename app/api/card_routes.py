@@ -44,3 +44,18 @@ def update_card(id):
 
 
 # Delete a card by id
+@card_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
+def delete_card(id):
+    card = Card.query.get(id)
+
+    if not card:
+        return {"message": "Card could not be found", "statusCode": 404}, 404
+
+    if card.owner_id != current_user.id:
+        return {"message": "Forbidden", "statusCode": 403}, 403
+
+    db.session.delete(card)
+    db.session.commit()
+
+    return { "message": "Successfully deleted", "statusCode": 200 }, 200
