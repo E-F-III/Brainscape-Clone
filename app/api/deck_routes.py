@@ -29,6 +29,37 @@ def get_cards_of_a_deck(id):
 
     return { 'cards': [card.to_dict() for card in cards] }
 
+
+
+# Create a card for a deck specified by id
+@deck_routes.route('/<int:id>/cards', methods=["POST"])
+@login_required
+def create_card(id):
+    deck = Deck.query.get(id)
+
+    if not deck:
+        return {"message": "Deck could not be found", "statusCode": 404}, 404
+
+    form = CardForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit:
+        card = Card(
+            owner_id = current_user.id,
+            deck_id = id,
+            question = form.question.data,
+            answer = form.answer.data
+        )
+
+        db.session.add(card)
+        db.session.commit()
+
+        return card.to_dict()
+
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+
+
+
 # Edit a deck by id
 @deck_routes.route('/<int:id>', methods=["PUT"])
 @login_required
