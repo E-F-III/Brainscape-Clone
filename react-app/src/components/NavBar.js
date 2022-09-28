@@ -26,7 +26,7 @@ const NavBar = () => {
           <img id='nav-bar-logo' src='https://www.brainscape.com/assets/cms/public-views/shared/Brainscape-logo.svg'/>
         </NavLink>
       </div>
-      <div id=''>
+      <div id='auth-buttons'>
         <LoginFormModal />
         <SignUpFormModal />
         {/* <LogoutButton /> */}

@@ -19,3 +19,9 @@ nav {
     max-width: 20%;
     width: auto;
 }
+
+#auth-buttons {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
