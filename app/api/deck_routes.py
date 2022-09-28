@@ -17,6 +17,19 @@ def validation_errors_to_error_messages(validation_errors):
 
 
 
+# Get cards of a deck specified by id
+@deck_routes.route('/<int:id>/cards', methods=["GET"])
+def get_cards_of_a_deck(id):
+    deck = Deck.query.get(id)
+
+    if not deck:
+        return {"message": "Deck could not be found", "statusCode": 404}, 404
+
+    cards = Card.query.filter(Card.deck_id == id).all()
+
+    return { 'cards': [card.to_dict() for card in cards] }
+
+# Edit a deck by id
 @deck_routes.route('/<int:id>', methods=["PUT"])
 @login_required
 def update_deck(id):
@@ -43,7 +56,7 @@ def update_deck(id):
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
 
-
+# Delete a deck by id
 @deck_routes.route('/<int:id>', methods=["DELETE"])
 @login_required
 def delete_deck(id):
