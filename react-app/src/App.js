@@ -38,12 +38,14 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+        {/* Test Components, refactor later */}
         <Route path='/classes/:classId/decks'>
           <DeckList />
         </Route>
         <ProtectedRoute path='/dashboard'>
           <UserClassList />
         </ProtectedRoute>
+        {/* Test Components, refactor later */}
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
