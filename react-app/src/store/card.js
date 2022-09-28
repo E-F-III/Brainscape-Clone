@@ -55,7 +55,7 @@ export const createCardThunk = payload => async dispatch => {
         {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(payload.card)
+            body: JSON.stringify(payload.cardData)
         })
     const data = await response.json()
 
@@ -85,7 +85,7 @@ export const updateCardThunk = payload => async dispatch => {
 
 export const deleteCardThunk = payload => async dispatch => {
     const response = await fetch(
-        `/api/decks/${payload.cardId}`,
+        `/api/cards/${payload.cardId}`,
         {
             method: "DELETE",
         })

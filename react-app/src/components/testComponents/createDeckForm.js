@@ -26,8 +26,6 @@ function DeckForm() {
             description: null
         }
 
-        console.log(deck)
-
         const payload = { classId, deck }
 
         const data = await dispatch(createDeckThunk(payload))
