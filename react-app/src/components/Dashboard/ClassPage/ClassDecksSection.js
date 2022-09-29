@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 
 import { getClassDecksThunk } from "../../../store/deck";
 
+import DeckFormModal from "./CreateDeckModal";
+
 import './ClassPage.css'
 
 function DecksSection({ classId }) {
@@ -45,17 +47,7 @@ function DecksSection({ classId }) {
                     </div>
                 ))
             }
-            <div className="deck-container">
-                <div id="create-deck-button-container">
-                    <ion-icon name="add-outline" />
-                </div>
-                <div className="deck-info">
-                    <div className="deck-info-top">
-                        <h4 id="new-deck-label">Create New Deck</h4>
-                    </div>
-                </div>
-
-            </div>
+            <DeckFormModal classId={classId}/>
         </div>
     )
 }
