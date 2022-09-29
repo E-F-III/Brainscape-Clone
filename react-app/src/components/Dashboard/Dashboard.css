@@ -1,0 +1,7 @@
+#dashboard-main {
+    height: 100vh;
+}
+
+#dashboard-container {
+    display: flex;
+}

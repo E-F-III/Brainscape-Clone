@@ -1,0 +1,35 @@
+#class-header {
+    display: flex;
+    justify-content: flex-start;
+    padding: 36px;
+}
+
+#class-header-img {
+    height: 130px;
+    width: 130px;
+}
+
+#class-header-main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 36px;
+}
+
+#class-title-and-edit {
+    align-items: center;
+    display: flex;
+}
+
+#class-title {
+    color: #197096;
+    line-height: 1;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
+    max-width: calc(100vw - 744px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

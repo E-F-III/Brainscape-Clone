@@ -34,7 +34,6 @@ function Sidebar() {
             <div id="sidebar-body">
                 {
                     classList.map(singleClass => (
-                        <>
                             <div key={singleClass.id} className="class-container">
                                 <div className="class-icon-container">
                                     <img className="class-icon" src="https://www.brainscape.com/assets/app_icons/ugs.png" />
@@ -47,8 +46,6 @@ function Sidebar() {
                                 {/* feature 3: classes */}
                                 {/* <div className="class-remove-button"></div> */}
                             </div>
-                        </>
-
                     ))
                 }
             </div>
