@@ -29,9 +29,13 @@ function ClassPage() {
                 </div>
                 <div></div>
             </div>
-            <div>
-                <NavLink to={`${url}/about`}>About</NavLink>
-                <NavLink to={`${url}/decks`}>Decks</NavLink>
+            <div id="class-tabs">
+                <div className="class-tab-container">
+                    <NavLink className="class-tab" to={`${url}/about`}>About</NavLink>
+                </div>
+                <div className="class-tab-container">
+                    <NavLink className="class-tab" to={`${url}/decks`}>Decks</NavLink>
+                </div>
             </div>
             <Switch>
                 <Route to={`${url}/about`}></Route>

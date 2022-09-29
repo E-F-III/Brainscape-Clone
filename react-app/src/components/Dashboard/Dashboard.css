@@ -1,5 +1,11 @@
 #dashboard-main {
     height: 100vh;
+    border-left: 1px solid #324054;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    position: relative;
+    width: calc(100% - 340px);
 }
 
 #dashboard-container {

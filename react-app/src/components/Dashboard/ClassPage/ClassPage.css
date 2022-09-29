@@ -33,3 +33,26 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+#class-tabs {
+    display: flex;
+    width: 100%;
+    background-color: rgba(5, 101, 156, 0.08);
+    border-bottom: 1px solid rgba(46, 64, 86, 0.26);
+    height: 42px;
+    margin: 0;
+}
+
+.class-tab-container {
+    border-bottom: 3px solid transparent;
+    color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    flex: 1;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 6px;
+}

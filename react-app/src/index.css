@@ -1,4 +1,10 @@
 /* TODO Add site wide styles */
+* {
+    font-family: "Open Sans", sans-serif;
+    font-size: 100%;
+    box-sizing: border-box;
+  }
+
 body {
     margin: 0;
     padding: 0;
