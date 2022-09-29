@@ -5,6 +5,7 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import { getUserClassesThunk } from "../../store/class";
 
 import ClassPage from "./ClassPage";
+import DeckPage from "./DeckPage";
 import Sidebar from "./Sidebar";
 
 import './Dashboard.css'
@@ -27,7 +28,9 @@ function Dashboard() {
       <Sidebar />
       <div id="dashboard-main">
         <Switch>
-          <Route path={`${url}/:classId/decks/:deckId`}></Route>
+          <Route path={`${url}/:classId/decks/:deckId`}>
+            <DeckPage />
+          </Route>
           <Route path={`${url}/:classId`}>
             <ClassPage />
           </Route>
