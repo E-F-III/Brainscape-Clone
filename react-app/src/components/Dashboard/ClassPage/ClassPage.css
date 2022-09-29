@@ -56,3 +56,32 @@
     align-items: flex-end;
     padding-bottom: 6px;
 }
+
+#deck-list {
+    margin: 0;
+    padding-bottom: 72px;
+    padding-left: 0;
+}
+
+.deck-container {
+    align-items: center;
+    border-bottom: 1px solid #DDDDDD;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 24px 30px 24px 42px;
+    position: relative;
+    width: 100%;
+}
+
+.deck-info-top {
+    align-items: center;
+    display: flex;
+    flex: 1;
+}
+
+#new-deck-label {
+    color: #CCC;
+    font-size: 18px;
+    font-weight: 600;
+}

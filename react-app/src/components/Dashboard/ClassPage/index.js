@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink, Route, Switch, useParams, useRouteMatch } from "react-router-dom";
 
+import DecksSection from "./ClassDecksSection";
+
 import './ClassPage.css'
 
 function ClassPage() {
@@ -38,8 +40,10 @@ function ClassPage() {
                 </div>
             </div>
             <Switch>
-                <Route to={`${url}/about`}></Route>
-                <Route to={`${url}/decks`}></Route>
+                <Route path={`${url}/about`}></Route>
+                <Route path={`${url}/decks`}>
+                    <DecksSection classId={classId}/>
+                </Route>
             </Switch>
         </div>
     )
