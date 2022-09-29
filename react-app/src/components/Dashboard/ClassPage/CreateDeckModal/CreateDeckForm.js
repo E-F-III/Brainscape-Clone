@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom';
 import { createDeckThunk } from '../../../../store/deck';
 
 const DeckForm = ({ classId, setShowModal }) => {
-    const history = useHistory()
     const dispatch = useDispatch();
 
     const [validationErrors, setValidationErrors] = useState([]);
@@ -30,7 +29,6 @@ const DeckForm = ({ classId, setShowModal }) => {
 
         setShowModal(false)
 
-        // history.push('/dashboard')
     };
 
     return (
