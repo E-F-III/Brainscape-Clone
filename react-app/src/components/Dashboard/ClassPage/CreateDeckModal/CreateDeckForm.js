@@ -20,7 +20,8 @@ const DeckForm = ({ classId, setShowModal }) => {
         if (validationErrors.length > 0) return
 
         const deck = {
-            title
+            title,
+            description: null
         }
 
         const payload = { deck, classId }

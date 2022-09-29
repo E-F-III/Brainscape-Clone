@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams, useRouteMatch } from "react-router-dom";
 
 import { getClassDecksThunk } from "../../../store/deck";
 
@@ -10,6 +10,8 @@ import './ClassPage.css'
 
 function DecksSection({ classId }) {
     const dispatch = useDispatch()
+    const history = useHistory()
+    const { url } = useRouteMatch()
 
     const decks = useSelector(state => state.decks)
     const deckList = Object.values(decks)
@@ -40,7 +42,7 @@ function DecksSection({ classId }) {
                         <div className="deck-container-buttons">
                             {/* Feature 2 Cards (study)
                             <div></div> */}
-                            <div className="deck-view-button-container">
+                            <div onClick={() => history.push(`${url}/${deck.id}`)} className="deck-view-button-container">
                                 <ion-icon name="chevron-forward-outline" />
                             </div>
                         </div>
