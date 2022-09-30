@@ -6,6 +6,7 @@ import { getClassDecksThunk } from "../../../store/deck";
 
 import DeckInfoModal from "./DeckInfoModal";
 import EditDeckModal from "./EditDeckModal";
+import DeleteDeckModal from "./DeleteDeckModal";
 
 import './DeckPage.css'
 
@@ -48,6 +49,7 @@ function DeckPage() {
                                 {/* <ion-icon name="ellipsis-horizontal-outline" /> */}
                                 <DeckInfoModal deckId={deckId} />
                                 <EditDeckModal deckId={deckId} />
+                                <DeleteDeckModal deckId={deckId} setIsLoaded={setIsLoaded} />
                             </div>
                         </div>
                     </div>

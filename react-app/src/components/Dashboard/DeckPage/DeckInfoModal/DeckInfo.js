@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-const DeckInfo = ({ deckId} ) => {
+const DeckInfo = ({ deckId }) => {
     const deck = useSelector(state => state.decks[Number(deckId)])
 
     return (
