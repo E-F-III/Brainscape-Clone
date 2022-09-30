@@ -4,6 +4,7 @@ import { NavLink, Route, Switch, useHistory, useParams, useRouteMatch } from "re
 
 import { getClassDecksThunk } from "../../../store/deck";
 
+import DeckInfoModal from "./DeckInfoModal";
 import EditDeckModal from "./EditDeckModal";
 
 import './DeckPage.css'
@@ -45,6 +46,7 @@ function DeckPage() {
                             <div id="deck-title">{deck.title}</div>
                             <div>
                                 {/* <ion-icon name="ellipsis-horizontal-outline" /> */}
+                                <DeckInfoModal deckId={deckId} />
                                 <EditDeckModal deckId={deckId} />
                             </div>
                         </div>
