@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Route, Switch, useHistory, useParams, useRouteMatch } from "react-router-dom";
+
 import { getClassDecksThunk } from "../../../store/deck";
+
+import EditDeckModal from "./EditDeckModal";
 
 import './DeckPage.css'
 
@@ -41,7 +44,8 @@ function DeckPage() {
                         <div id="deck-header-info">
                             <div id="deck-title">{deck.title}</div>
                             <div>
-                                <ion-icon name="ellipsis-horizontal-outline" />
+                                {/* <ion-icon name="ellipsis-horizontal-outline" /> */}
+                                <EditDeckModal deckId={deckId} />
                             </div>
                         </div>
                     </div>
