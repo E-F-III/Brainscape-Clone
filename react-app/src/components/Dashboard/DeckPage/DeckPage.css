@@ -14,6 +14,11 @@
     padding: 12px 36px;
 }
 
+#deck-header-buttons {
+    display: flex;
+    padding: 5px;
+}
+
 #class-header-top-content {
     align-items: center;
     display: flex;

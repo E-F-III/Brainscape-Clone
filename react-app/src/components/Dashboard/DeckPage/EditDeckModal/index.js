@@ -10,7 +10,10 @@ function EditDeckModal({ deckId }) {
 
     return (
         <>
-            <ion-icon onClick={() => setShowModal(true)} name="pencil-outline"></ion-icon>
+            <div className='general-edit-buttons'>
+                <ion-icon onClick={() => setShowModal(true)} name="pencil-outline"></ion-icon>
+
+            </div>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <EditDeckForm deckId={deckId} setShowModal={setShowModal} />

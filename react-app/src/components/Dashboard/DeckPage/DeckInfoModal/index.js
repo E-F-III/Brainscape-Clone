@@ -10,7 +10,9 @@ function DeckInfoModal({ deckId }) {
 
     return (
         <>
-            <ion-icon onClick={() => setShowModal(true)} name="information-circle-outline"></ion-icon>
+            <div className='general-edit-buttons'>
+                <ion-icon onClick={() => setShowModal(true)} name="information-circle-outline"></ion-icon>
+            </div>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <DeckInfo deckId={deckId} setShowModal={setShowModal} />

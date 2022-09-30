@@ -45,7 +45,7 @@ function DeckPage() {
                         </div>
                         <div id="deck-header-info">
                             <div id="deck-title">{deck.title}</div>
-                            <div>
+                            <div id="deck-header-buttons">
                                 {/* <ion-icon name="ellipsis-horizontal-outline" /> */}
                                 <DeckInfoModal deckId={deckId} />
                                 <EditDeckModal deckId={deckId} />
