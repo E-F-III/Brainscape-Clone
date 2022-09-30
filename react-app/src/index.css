@@ -35,8 +35,8 @@ body {
 
 .modal-button {
   background-color: #FF8243;
-  font-size: 12px;
-  height: 48px;
+  font-size: 16px;
+  height: 42px;
 }
 
 .text-field {
@@ -75,4 +75,11 @@ body {
   padding: 12px 18px;
   width: 100%;
   resize: vertical;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
 }

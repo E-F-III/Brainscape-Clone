@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 
 import { deleteDeckThunk } from "../../../../store/deck";
 
-const DeleteDeckForm = ({ deckId, setIsLoaded }) => {
+const DeleteDeckForm = ({ deckId, setIsLoaded, setShowModal }) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const { classId } = useParams()
@@ -21,7 +21,14 @@ const DeleteDeckForm = ({ deckId, setIsLoaded }) => {
     }
 
     return (
-        <button onClick={handleDelete}>Delete</button>
+        <div id="delete-deck-modal-content">
+            <div id="delete-deck-header">Caution</div>
+            <div id="delete-deck-message">You are about to Remove this Deck. Are you sure that you wish to proceed?</div>
+            <div className="modal-buttons">
+                <div onClick={() => setShowModal(false)} className="pill-button ">Cancel</div>
+                <div onClick={handleDelete} className="pill-button modal-button">Delete</div>
+            </div>
+        </div>
     )
 }
 

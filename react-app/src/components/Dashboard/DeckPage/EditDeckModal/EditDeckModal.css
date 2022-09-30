@@ -6,9 +6,3 @@
     text-align: center;
     text-transform: capitalize;
 }
-
-.modal-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
