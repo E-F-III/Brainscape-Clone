@@ -21,7 +21,6 @@
 #modal-content {
   position: absolute;
   background-color: white;
-
   border-radius: 24px;
   color: #939BA5;
   font-size: 14px;
@@ -32,4 +31,10 @@
   padding: 30px;
   margin-top: -100px;
   transition: opacity 200ms ease 0s, margin 400ms ease 0s;
+  display: grid;
+  grid-row-gap: 1.3rem;
+  max-height: calc(80vh - 60px);
+  max-width: calc(80vw - 60px);
+  overflow: auto;
+  width: 540px;
 }

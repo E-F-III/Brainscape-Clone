@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { updateDeckThunk } from '../../../../store/deck';
 
+import './EditDeckModal.css'
+
 const EditDeckForm = ({ deckId, setShowModal }) => {
     const dispatch = useDispatch()
 
@@ -34,26 +36,37 @@ const EditDeckForm = ({ deckId, setShowModal }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor='title'>Title</label>
-            <input
-                required
-                type='text'
-                name='title'
-                value={title}
-                onChange={e => setTitle(e.target.value)}
-            />
+        <div>
+            <div id='edit-deck-header'>
+                Edit Deck
+            </div>
+            <form onSubmit={handleSubmit}>
+                <div className='text-field'>
+                    <div className='field-label'>Title</div>
+                    <input className='form-input'
+                        required
+                        type='text'
+                        name='title'
+                        value={title}
+                        onChange={e => setTitle(e.target.value)}
+                    />
+                </div>
+                <div className='text-field'>
+                    <div className='field-label'>Descrtiption</div>
+                    <textarea className='textarea-input'
+                        type='text'
+                        name='description'
+                        value={description}
+                        onChange={e => setDescription(e.target.value)}
+                    />
+                </div>
+                <div className='modal-buttons'>
+                    <div onClick={() => setShowModal(false)} className="pill-button ">Cancel</div>
+                    <div onClick={handleSubmit} className="pill-button modal-button">Save</div>
+                </div>
+            </form>
+        </div>
 
-            <label htmlFor='description'>Descrtiption</label>
-            <input
-                type='text'
-                name='description'
-                value={description}
-                onChange={e => setDescription(e.target.value)}
-            />
-
-            <button type='submit'>Save</button>
-        </form>
     )
 }
 
