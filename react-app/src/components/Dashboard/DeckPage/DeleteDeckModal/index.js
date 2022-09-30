@@ -12,7 +12,6 @@ function DeleteDeckModal({ deckId, setIsLoaded }) {
         <>
             <div className='general-edit-buttons'>
                 <ion-icon onClick={() => setShowModal(true)} name="trash-outline"></ion-icon>
-
             </div>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>

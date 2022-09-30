@@ -33,13 +33,12 @@ function DeckPage() {
             <div id="deck-header">
                 <div id="deck-header-top-row">
                     <div id="class-header-top-content">
-                        <div onClick={() => history.push(`/dashboard/${classId}`)} id="class-button">
+                        <div onClick={() => history.push(`/dashboard/${classId}/decks`)} id="class-button">
                             <div>
                                 <ion-icon name="chevron-back-outline" />
                             </div>
                             <div>
                                 <img id="class-icon-button" src="https://www.brainscape.com/assets/app_icons/ugs.png" />
-
                             </div>
                             <div id="class-name">{singleClass.title}</div>
                         </div>

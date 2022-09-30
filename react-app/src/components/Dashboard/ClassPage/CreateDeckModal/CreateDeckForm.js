@@ -20,7 +20,7 @@ const DeckForm = ({ classId, setShowModal }) => {
 
         const deck = {
             title,
-            description: null
+            description: ""
         }
 
         const payload = { deck, classId }
