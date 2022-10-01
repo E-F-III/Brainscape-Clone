@@ -25,9 +25,9 @@ def get_cards_of_a_deck(id):
     if not deck:
         return {"message": "Deck could not be found", "statusCode": 404}, 404
 
-    cards = Card.query.filter(Card.deck_id == id).all()
+    # cards = Card.query.filter(Card.deck_id == id).all()
 
-    return { 'cards': [card.to_dict() for card in cards] }
+    return { 'cards': [card.to_dict() for card in deck.cards] }
 
 
 

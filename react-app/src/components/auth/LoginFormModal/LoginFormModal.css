@@ -1,0 +1,13 @@
+#login-button {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    font-weight: 600;
+    height: 100%;
+    justify-content: center;
+    line-height: 1.125rem;
+    width: 100%;
+    color: black;
+    background-color: white;
+    width: 123px;
+}
