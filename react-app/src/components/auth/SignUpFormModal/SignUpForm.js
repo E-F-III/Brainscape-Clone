@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
@@ -14,6 +14,17 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+
+  const [validationErrors, setValidationErrors] = useState([])
+
+  useEffect(() => {
+    const newErrors = []
+
+    // Validation Errors go here
+
+    setValidationErrors(newErrors)
+
+  }, [firstName, lastName, email, password, repeatPassword])
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -53,7 +64,7 @@ const SignUpForm = () => {
     <>
       <div id='signup-header'>Get Started</div>
       <form onSubmit={onSignUp}>
-        <div>
+        <div className='errors'>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
@@ -87,7 +98,7 @@ const SignUpForm = () => {
 
         <div className='input-container'>
           <input
-            type='text'
+            type='email'
             name='email'
             placeholder=" "
             onChange={updateEmail}
@@ -125,7 +136,8 @@ const SignUpForm = () => {
         </div>
 
         <div className='modal-buttons'>
-          <div onClick={onSignUp} className="pill-button modal-button">Sign Up</div>
+          {/* <div onClick={onSignUp} className="pill-button modal-button">Sign Up</div> */}
+          <button type='submit' className="pill-button modal-button">Sign Up</button>
         </div>
       </form>
     </>
