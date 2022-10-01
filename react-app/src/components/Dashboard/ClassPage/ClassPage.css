@@ -1,0 +1,87 @@
+#class-header {
+    display: flex;
+    justify-content: flex-start;
+    padding: 36px;
+}
+
+#class-header-img {
+    height: 130px;
+    width: 130px;
+}
+
+#class-header-main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 36px;
+}
+
+#class-title-and-edit {
+    align-items: center;
+    display: flex;
+}
+
+#class-title {
+    color: #197096;
+    line-height: 1;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
+    max-width: calc(100vw - 744px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#class-tabs {
+    display: flex;
+    width: 100%;
+    background-color: rgba(5, 101, 156, 0.08);
+    border-bottom: 1px solid rgba(46, 64, 86, 0.26);
+    height: 42px;
+    margin: 0;
+}
+
+.class-tab-container {
+    border-bottom: 3px solid transparent;
+    color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    flex: 1;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 6px;
+}
+
+#deck-list {
+    margin: 0;
+    padding-bottom: 72px;
+    padding-left: 0;
+}
+
+.deck-container {
+    align-items: center;
+    border-bottom: 1px solid #DDDDDD;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 24px 30px 24px 42px;
+    position: relative;
+    width: 100%;
+}
+
+.deck-info-top {
+    align-items: center;
+    display: flex;
+    flex: 1;
+}
+
+#new-deck-label {
+    color: #CCC;
+    font-size: 18px;
+    font-weight: 600;
+}

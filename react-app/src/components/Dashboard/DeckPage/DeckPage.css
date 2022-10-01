@@ -1,0 +1,99 @@
+#deck-header {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    z-index: 10;
+}
+
+#deck-header-top-row {
+    align-items: center;
+    display: flex;
+    height: auto;
+    justify-content: space-between;
+    padding: 12px 36px;
+}
+
+#deck-header-buttons {
+    display: flex;
+    padding: 5px;
+}
+
+#class-header-top-content {
+    align-items: center;
+    display: flex;
+    flex: 1;
+}
+
+#class-button {
+    align-items: center;
+    display: flex;
+}
+
+#class-button {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    height: 30px;
+    margin-right: 24px;
+}
+
+#class-icon-button {
+    height: 30px;
+    margin-right: 6px;
+    width: 30px;
+}
+
+#class-name {
+    align-items: center;
+    color: #777;
+    display: flex;
+    font-size: 12px;
+    height: 100%;
+    line-height: 13px;
+    font-weight: 700;
+    margin: 0;
+}
+
+#deck-header-info {
+    align-items: center;
+    display: flex;
+    flex: 1;
+}
+
+#deck-title {
+    color: #197096;
+    height: 100%;
+    line-height: 1;
+    font-size: 24px;
+    font-weight: 700;
+    margin-right: 24px;
+    max-width: calc(100vw - 336px - 16vw);
+    overflow: hidden;
+    padding: 9px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#deck-tabs {
+    background-color: rgba(5, 101, 156, 0.08);
+    border-bottom: 1px solid rgba(46, 64, 86, 0.26);
+    height: 42px;
+    margin: 0;
+    display: flex;
+    width: 100%;
+}
+
+.deck-tab-container {
+    border-bottom: 3px solid transparent;
+    color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    flex: 1;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 6px;
+}

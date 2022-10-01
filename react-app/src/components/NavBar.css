@@ -1,0 +1,27 @@
+nav {
+    height: 72px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+}
+
+#nav-bar-logo {
+    height: 36px;
+}
+
+#nav-bar-logo-container {
+    align-items: center;
+    background-color: white;
+    display: flex;
+    height: 100%;
+    padding-left: 4%;
+    max-width: 20%;
+    width: auto;
+}
+
+#auth-buttons {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
