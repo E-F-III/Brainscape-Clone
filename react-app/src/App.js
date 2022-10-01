@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
-import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
-
-import UserClassList from './components/testComponents/sessionClasses';
-import DeckList from './components/testComponents/decks';
 
 import { authenticate } from './store/session';
+
+import ProtectedRoute from './components/auth/ProtectedRoute';
+
+import NavBar from './components/NavBar';
+import Splashpage from './components/Splashpage';
+import Dashboard from './components/Dashboard';
+
+// test components
+import UserClassList from './components/testComponents/sessionClasses';
+import DeckList from './components/testComponents/decks';
 import CardList from './components/testComponents/cards';
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -31,28 +32,25 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
       <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
+        <ProtectedRoute path='/dashboard'>
+          <Dashboard />
+        </ProtectedRoute>
         {/* Test Components, refactor later */}
-        <Route path='/classes/:classId/decks'>
+        <Route path='/test/classes/:classId/decks'>
           <DeckList />
         </Route>
-        <Route path='/decks/:deckId/cards'>
+        <Route path='/test/decks/:deckId/cards'>
           <CardList />
         </Route>
-        <ProtectedRoute path='/dashboard'>
+        <ProtectedRoute path='/test/dashboard'>
           <UserClassList />
         </ProtectedRoute>
         {/* Test Components, refactor later */}
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-        </ProtectedRoute>
+        <Route path='/' exact={true} >
+          <NavBar />
+          <Splashpage />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

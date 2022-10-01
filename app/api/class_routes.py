@@ -21,9 +21,9 @@ def validation_errors_to_error_messages(validation_errors):
 @class_routes.route('/session')
 @login_required
 def get_classes_of_current_user():
-    classes = Class.query.filter(Class.owner_id == current_user.id).all()
+    # classes = Class.query.filter(Class.owner_id == current_user.id).all()
 
-    return {'classes': [singleClass.to_dict() for singleClass in classes]}
+    return {'classes': [singleClass.to_dict() for singleClass in current_user.classes]}
 
 
 
@@ -35,9 +35,9 @@ def get_decks_of_a_class(id):
     if not single_class:
         return {"message": "Class could not be found", "statusCode": 404}, 404
 
-    decks = Deck.query.filter(Deck.class_id == id).all()
+    # decks = Deck.query.filter(Deck.class_id == id).all()
 
-    return { 'decks': [deck.to_dict() for deck in decks] }
+    return { 'decks': [deck.to_dict() for deck in single_class.decks] }
 
 
 
