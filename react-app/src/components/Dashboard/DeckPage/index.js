@@ -67,6 +67,11 @@ function DeckPage() {
                     </div>
                 </div>
             </div>
+            <Switch>
+                <Route path={`${url}/cards/preview`}></Route>
+                <Route path={`${url}/cards/edit`}></Route>
+                <Route path={`${url}/cards/browse`}></Route>
+            </Switch>
         </div>
     )
 }
