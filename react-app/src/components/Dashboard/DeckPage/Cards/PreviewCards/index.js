@@ -25,7 +25,7 @@ function PreviewCards() {
                                         <div className="card-contents">
                                             <div className="card-content-header">
                                                 <div className="card-content-header-main">
-                                                    <div className="card-type">question</div>
+                                                    <div className="card-type">q</div>
                                                 </div>
                                             </div>
                                             <div className="card-main-container">
@@ -39,7 +39,7 @@ function PreviewCards() {
                                         <div className="card-contents">
                                             <div className="card-content-header">
                                                 <div className="card-content-header-main">
-                                                    <div className="card-type">answer</div>
+                                                    <div className="card-type">a</div>
                                                 </div>
                                             </div>
                                             <div className="card-main-container">
