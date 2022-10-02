@@ -8,7 +8,6 @@ import './PreviewCards.css'
 
 function PreviewCards() {
     const { deckId } = useParams()
-    const { url } = useRouteMatch()
 
     const deck = useSelector(state => state.decks[Number(deckId)])
     const cards = useSelector(state => state.cards)
