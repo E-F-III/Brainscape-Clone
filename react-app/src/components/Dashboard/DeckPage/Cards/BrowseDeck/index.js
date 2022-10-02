@@ -14,6 +14,16 @@ function BrowseDeck() {
     const [currCard, setCurrCard] = useState(0)
     const [sideA, setSideA] = useState(true)
 
+    const handleNext = () => {
+        setCurrCard(prev => prev + 1)
+        setSideA(true)
+    }
+
+    const handlePrev = () => {
+        setCurrCard(prev => prev - 1)
+        setSideA(true)
+    }
+
     return (
         <>
             <div id='browse-deck-container'>
@@ -21,7 +31,7 @@ function BrowseDeck() {
                     <div id='card-gutter-left'>
                         <div class='browse-card-button-container'
                             style={{ visibility: currCard > 0 ? "visible" : "hidden" }}
-                            onClick={() => setCurrCard(prev => prev - 1)}>
+                            onClick={handlePrev}>
                             <ion-icon name="caret-back-outline"></ion-icon>
                         </div>
                     </div>
@@ -37,7 +47,13 @@ function BrowseDeck() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div id='browse-card-body'></div>
+                                    <div id='browse-card-body-container'>
+                                        <div id='browse-card-body'>
+                                            <div id='browse-card-body-content'>
+                                                <p>{sideA ? cardList[currCard].question : cardList[currCard].answer}</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -46,7 +62,7 @@ function BrowseDeck() {
                     <div id='card-gutter-right'>
                         <div class='browse-card-button-container'
                         style={{ visibility: currCard < cardList.length ? "visible" : "hidden" }}
-                        onClick={() => setCurrCard(prev => prev + 1)}>
+                        onClick={handleNext}>
                             <ion-icon name="caret-forward-outline"></ion-icon>
                         </div>
                     </div>

@@ -168,3 +168,37 @@
     display: flex;
     font-family: "Mont Bold", Mont, sans-serif;
 }
+
+#browse-card-body-container {
+    padding: 1em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    font-family: "Open Sans", sans-serif;
+}
+
+#browse-card-body {
+    color: #333;
+    height: auto;
+    min-height: 30px;
+    margin: 0;
+    width: 100%;
+    font-size: 22px;
+}
+
+#browse-card-body-content {
+    display: flex;
+    flex-direction: column;
+}
+
+#browse-card-body-content > p {
+    color: #24292f;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.7em;
+    font-weight: 500;
+    line-height: 150%;
+    margin-top: 0;
+    text-align: center;
+}
