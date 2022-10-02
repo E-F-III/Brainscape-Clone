@@ -24,6 +24,9 @@ function BrowseDeck() {
         setSideA(true)
     }
 
+    console.log(currCard)
+    console.log(cardList)
+
     return (
         <>
             <div id='browse-deck-container'>
@@ -61,7 +64,7 @@ function BrowseDeck() {
                     </div>
                     <div id='card-gutter-right'>
                         <div class='browse-card-button-container'
-                        style={{ visibility: currCard < cardList.length ? "visible" : "hidden" }}
+                        style={{ visibility: currCard + 1 < cardList.length ? "visible" : "hidden" }}
                         onClick={handleNext}>
                             <ion-icon name="caret-forward-outline"></ion-icon>
                         </div>
