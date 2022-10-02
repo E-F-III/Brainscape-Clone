@@ -1,10 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { getUserClassesThunk } from "../../../store/class";
 
 import './Sidebar.css'
 
 function Sidebar() {
+    const history = useHistory()
     const sessionUser = useSelector(state => state.session.user)
 
     const classes = useSelector(state => state.classes)
@@ -34,7 +36,7 @@ function Sidebar() {
             <div id="sidebar-body">
                 {
                     classList.map(singleClass => (
-                            <div key={singleClass.id} className="class-container">
+                            <div onClick={()=> history.push(`/dashboard/${singleClass.id}`)} key={singleClass.id} className="class-container">
                                 <div className="class-icon-container">
                                     <img className="class-icon" src="https://www.brainscape.com/assets/app_icons/ugs.png" />
                                 </div>

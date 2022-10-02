@@ -11,3 +11,12 @@
     background-color: white;
     width: 123px;
 }
+
+#signin-header {
+    color: #324A6B;
+    font-family: "Mont Bold", Mont, sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+    text-transform: capitalize;
+}

@@ -11,7 +11,7 @@ const DeckInfo = ({ deckId, setShowModal }) => {
             <div id="close-deck-info-button-container"></div>
             <div id="deck-modal-content">
                 <div id="deck-modal-title">{deck.title}</div>
-                <div id="deck-modal-description">{deck.description.length > 0 ? deck.description : "No description entered for this deck"}</div>
+                <div id="deck-modal-description">{deck.description ? deck.description : "No description entered for this deck"}</div>
                 <div onClick={()=> setShowModal(false)} className="pill-button modal-button">Ok</div>
             </div>
         </>

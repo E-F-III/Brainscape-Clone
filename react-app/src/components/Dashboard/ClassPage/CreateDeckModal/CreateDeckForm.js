@@ -51,7 +51,7 @@ const DeckForm = ({ classId, setShowModal }) => {
                         onChange={e => setTitle(e.target.value)}
                     />
                     <div className='field-caption'>
-                        Ente the title of your new deck above
+                        Enter the title of your new deck above
                     </div>
                 </div>
                 <div className='modal-buttons'>
