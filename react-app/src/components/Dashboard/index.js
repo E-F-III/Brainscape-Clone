@@ -34,6 +34,9 @@ function Dashboard() {
           <Route path={`${url}/:classId`}>
             <ClassPage />
           </Route>
+          {/* <Route path={`${url}/`}>
+            <h1>Select a class to view</h1>
+          </Route> */}
         </Switch>
       </div>
 

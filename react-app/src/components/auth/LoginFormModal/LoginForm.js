@@ -37,34 +37,48 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
+    <>
+      <div id='signin-header'>Log In</div>
+      <form onSubmit={onLogin}>
+        <div className='errors'>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
+        <div className='input-container'>
+          <input
+            name='email'
+            type='email'
+            placeholder=" "
+            value={email}
+            onChange={updateEmail}
+            className='text-input'
+            required
+          />
+          <label>Email</label>
+        </div>
+
+        <div className='input-container'>
+          <input
+            name='password'
+            type='password'
+            placeholder=" "
+            value={password}
+            onChange={updatePassword}
+            className='text-input'
+            required
+          />
+          <label>Password</label>
+        </div>
+
+        <div className='modal-buttons'>
+          {/* <div onClick={onLogin} className="pill-button modal-button">Log In</div> */}
+          <button type='submit' className="pill-button modal-button">Log In</button>
+        </div>
+
+      </form>
+    </>
+
   );
 };
 
