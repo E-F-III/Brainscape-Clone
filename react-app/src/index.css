@@ -106,3 +106,7 @@ body {
   margin-top: 6px;
   text-align: left;
 }
+
+.errors {
+  color: red;
+}
