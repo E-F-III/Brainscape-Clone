@@ -7,6 +7,8 @@ import LoginFormModal from './auth/LoginFormModal';
 import LogoutButton from './auth/LogoutButton';
 import SignUpFormModal from './auth/SignUpFormModal';
 
+import transparentlogo from '../assets/l3.png'
+
 import './NavBar.css'
 
 const NavBar = () => {
@@ -29,7 +31,8 @@ const NavBar = () => {
     <nav>
       <div id='nav-bar-logo-container'>
         <NavLink to='/' exact={true} activeClassName='active'>
-          <img id='nav-bar-logo' src='https://www.brainscape.com/assets/cms/public-views/shared/Brainscape-logo.svg' />
+          {/* <img id='nav-bar-logo' src='https://www.brainscape.com/assets/cms/public-views/shared/Brainscape-logo.svg' /> */}
+          <img id='nav-bar-logo-v2' src={transparentlogo} />
         </NavLink>
       </div>
       <div id='auth-buttons'>
