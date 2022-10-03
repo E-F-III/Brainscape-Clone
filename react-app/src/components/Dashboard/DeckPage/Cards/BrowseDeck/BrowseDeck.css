@@ -191,6 +191,9 @@
 #browse-card-body-content {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
 }
 
 #browse-card-body-content > p {
@@ -201,4 +204,6 @@
     line-height: 150%;
     margin-top: 0;
     text-align: center;
+    margin: inherit;
+    margin-bottom: 12px;
 }

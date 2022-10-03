@@ -11,6 +11,7 @@ import DeleteDeckModal from "./DeleteDeckModal";
 
 import PreviewCards from "./Cards/PreviewCards";
 import BrowseDeck from "./Cards/BrowseDeck";
+import EditCards from "./Cards/EditCards";
 
 import './DeckPage.css'
 
@@ -77,6 +78,7 @@ function DeckPage() {
                     <PreviewCards />
                 </Route>
                 <Route path={`${url}/cards/edit`}>
+                    <EditCards />
                 </Route>
                 <Route path={`${url}/cards/browse`}>
                     <BrowseDeck />

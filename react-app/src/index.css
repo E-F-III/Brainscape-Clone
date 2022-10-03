@@ -8,6 +8,12 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #fefefe;
+  color: #333;
+  font-family: "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  height: 100%;
+  line-height: 1.4;
 }
 
 p {

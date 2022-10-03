@@ -24,9 +24,6 @@ function BrowseDeck() {
         setSideA(true)
     }
 
-    console.log(currCard)
-    console.log(cardList)
-
     return (
         <>
             <div id='browse-deck-container'>

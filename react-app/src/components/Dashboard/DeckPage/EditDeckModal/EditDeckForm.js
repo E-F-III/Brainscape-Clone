@@ -43,7 +43,8 @@ const EditDeckForm = ({ deckId, setShowModal }) => {
             <form onSubmit={handleSubmit}>
                 <div className='text-field'>
                     <div className='field-label'>Title</div>
-                    <input className='form-input'
+                    <input
+                        className='form-input'
                         required
                         type='text'
                         name='title'
@@ -53,7 +54,8 @@ const EditDeckForm = ({ deckId, setShowModal }) => {
                 </div>
                 <div className='text-field'>
                     <div className='field-label'>Descrtiption</div>
-                    <textarea className='textarea-input'
+                    <textarea
+                        className='textarea-input'
                         type='text'
                         name='description'
                         value={description}
