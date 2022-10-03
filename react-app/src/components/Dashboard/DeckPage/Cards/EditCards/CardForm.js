@@ -1,18 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 
-import { updateCardThunk, deleteCardThunk } from "../../../../../store/card";
+import { createCardThunk, updateCardThunk, deleteCardThunk } from "../../../../../store/card";
 
 import './EditCards.css'
 
-function CardForm({ card, idx }) {
+function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
     const dispatch = useDispatch()
 
-    const [question, setQuestion] = useState(card.question)
-    const [answer, setAnswer] = useState(card.answer)
+    const [question, setQuestion] = useState( edit ? card.question : '')
+    const [answer, setAnswer] = useState(edit ? card.answer : '')
 
     const [validationErrors, setValidationErrors] = useState([])
     const [isSubmitted, setIsSubmitted] = useState(false)
+
+    const handleCreate = async e => {
+        e.preventDefault()
+
+        setIsSubmitted(true)
+
+        if (validationErrors.length > 0) return
+
+        const cardData = { question, answer }
+        const payload = {deckId, cardData}
+
+        const data = await dispatch(createCardThunk(payload))
+
+        setShowCreateCard(false)
+    }
+
+    const handleCancel = async e => {
+        e.preventDefault()
+
+        setQuestion('')
+        setAnswer('')
+        setShowCreateCard(false)
+    }
 
     const handleSave = async e => {
         e.preventDefault()
@@ -47,7 +71,7 @@ function CardForm({ card, idx }) {
     return (
         <div className="edit-card-card">
             <div className="edit-card-card-header">
-                <div className="edit-card-card-number">{idx + 1}</div>
+                <div className="edit-card-card-number">{edit ? idx + 1 : "New Card"}</div>
             </div>
             <div className="edit-card-card-body">
                 <div className="edit-card-card-left">
@@ -110,10 +134,10 @@ function CardForm({ card, idx }) {
                 </div>
             </div>
             <div className="edit-card-card-footer">
-                <div onClick={handleSave} className="general-edit-buttons">
+                <div onClick={edit ? handleSave : handleCreate} className="general-edit-buttons">
                     <ion-icon name="save"></ion-icon>
                 </div>
-                <div onClick={handleDelete} className="general-edit-buttons">
+                <div onClick={edit ? handleDelete : handleCancel} className="general-edit-buttons">
                     <ion-icon name="trash"></ion-icon>
                 </div>
             </div>

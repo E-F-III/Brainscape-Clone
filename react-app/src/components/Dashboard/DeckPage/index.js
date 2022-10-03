@@ -78,7 +78,7 @@ function DeckPage() {
                     <PreviewCards />
                 </Route>
                 <Route path={`${url}/cards/edit`}>
-                    <EditCards />
+                    <EditCards deckId={deckId} />
                 </Route>
                 <Route path={`${url}/cards/browse`}>
                     <BrowseDeck />

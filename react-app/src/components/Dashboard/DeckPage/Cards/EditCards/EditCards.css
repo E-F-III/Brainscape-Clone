@@ -65,6 +65,54 @@
     transition: all 0.5s ease;
 }
 
+#create-card-row {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    padding-left: 9px;
+    transition: all 0.5s ease;
+}
+
+#create-card-header {
+    width: 60px;
+}
+
+#create-card-body {
+    width: calc(100vw - 90px - 200px - 144px - 250px);
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0;
+    overflow: visible;
+    max-width: none;
+    background-color: transparent;
+    border: none;
+    color: rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0;
+}
+
+#create-card-prompt {
+    color: rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#create-card-footer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    opacity: 0;
+    padding: 36px 9px;
+    transition: opacity 0.2s ease;
+}
+
+
+/* CardForm styling */
+
 .edit-card-card {
     align-items: center;
     display: flex;
