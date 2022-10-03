@@ -3,10 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Route, Switch, useHistory, useParams, useRouteMatch } from "react-router-dom";
 
 import { getClassDecksThunk } from "../../../store/deck";
+import { getDeckCardsThunk } from "../../../store/card";
 
 import DeckInfoModal from "./DeckInfoModal";
 import EditDeckModal from "./EditDeckModal";
 import DeleteDeckModal from "./DeleteDeckModal";
+
+import PreviewCards from "./Cards/PreviewCards";
+import BrowseDeck from "./Cards/BrowseDeck";
+import EditCards from "./Cards/EditCards";
 
 import './DeckPage.css'
 
@@ -24,6 +29,7 @@ function DeckPage() {
     useEffect(() => {
         (async () => {
             await dispatch(getClassDecksThunk({ classId }))
+            await dispatch(getDeckCardsThunk({ deckId }))
             setIsLoaded(true)
         })()
     }, [dispatch])
@@ -67,6 +73,17 @@ function DeckPage() {
                     </div>
                 </div>
             </div>
+            <Switch>
+                <Route path={`${url}/cards/preview`}>
+                    <PreviewCards />
+                </Route>
+                <Route path={`${url}/cards/edit`}>
+                    <EditCards deckId={deckId} />
+                </Route>
+                <Route path={`${url}/cards/browse`}>
+                    <BrowseDeck />
+                </Route>
+            </Switch>
         </div>
     )
 }

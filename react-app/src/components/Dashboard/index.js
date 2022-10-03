@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { Switch, Route, useRouteMatch } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Switch, Route, useRouteMatch, useHistory, Redirect, useLocation } from "react-router-dom";
 
 import { getUserClassesThunk } from "../../store/class";
 
@@ -13,15 +13,22 @@ import './Dashboard.css'
 function Dashboard() {
   const dispatch = useDispatch()
   const { url } = useRouteMatch()
+  const { pathname } = useLocation()
 
   const [isLoaded, setIsLoaded] = useState(false)
+  const classes = useSelector(state => state.classes)
+  const classList = Object.values(classes)
 
   useEffect(() => {
     (async () => {
       await dispatch(getUserClassesThunk());
       setIsLoaded(true);
     })();
-  }, [dispatch]);
+  }, [dispatch])
+
+  if (classList.length && pathname === '/dashboard' ){ // redirect to the users FIRST class
+    return <Redirect to={`${url}/${classList[0].id}`} />
+  }
 
   return isLoaded && (
     <div id="dashboard-container">
