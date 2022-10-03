@@ -1,7 +1,8 @@
+from crypt import methods
 from flask import Blueprint, request
 from flask_login import current_user, login_required
 from app.models import db, Class, Deck
-from app.forms import DeckForm
+from app.forms import DeckForm, ClassForm
 
 class_routes = Blueprint('classes', __name__)
 
@@ -65,5 +66,26 @@ def create_deck(id):
         db.session.commit()
 
         return deck.to_dict()
+
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+
+# Create a class for a user
+@class_routes.route('', methods=["POST"])
+@login_required
+def create_class():
+    form = ClassForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit:
+        single_class = Class(
+            owner_id = current_user.id,
+            title = form.title.data,
+            description = form.description.data
+        )
+
+        db.session.add(single_class)
+        db.session.commit()
+
+        return single_class.to_dict()
 
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
