@@ -1,0 +1,209 @@
+#browse-deck-container {
+    background-color: #fbfbfb;
+    display: block;
+    flex-direction: column;
+    padding: 27px 30px;
+    position: relative;
+}
+
+#browse-card-table {
+    display: flex;
+    height: calc(100vh - 114px - 27px - 27px);
+}
+
+#card-gutter-left {
+    align-items: center;
+    display: flex-start;
+    justify-content: center;
+    width: 36px;
+}
+
+#card-gutter-right {
+    align-items: center;
+    display: flex-end;
+    justify-content: center;
+    width: 36px;
+}
+
+.browse-card-button-container {
+    color: #9cb0c5;
+    font-size: 36px;
+    height: 36px;
+    width: 36px;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#browse-card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+#browse-card {
+    align-self: center;
+    box-shadow: 0 2px 4px rgba(100, 100, 100, 0.25);
+    height: calc(100vh - 114px - 54px - 10vh - 24px);
+    width: calc(calc(100vh - 114px - 54px - 10vh - 24px) * 1.33333333);
+    max-height: calc(calc(100vw - 90px - 144px) / 1.33333333);
+    max-width: calc(100vw - 90px - 144px);
+
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Open Sans", sans-serif;
+    margin: 0 0 24px 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    transition: width 0.5s ease;
+}
+
+#browse-card-button {
+    align-self: center;
+    background-color: #7D93A4;
+    margin-top: 12px;
+    font-size: 14px;
+    height: 60px;
+    width: calc(calc(calc(100vh - 114px - 54px - 10vh - 24px) * 1.33333333) * 0.5);
+
+    align-items: center;
+    border: none;
+    border-radius: 42px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    font-weight: 300;
+    justify-content: center;
+    letter-spacing: 0.12em;
+    outline-style: none;
+    padding: 0 25.2px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+#browse-card-face {
+    font-size: 22px;
+    height: calc(100vh - 114px - 54px - 10vh - 24px);
+    width: calc(calc(100vh - 114px - 54px - 10vh - 24px) * 1.33333333);
+    max-height: calc(calc(100vw - 90px - 144px) / 1.33333333);
+    max-width: calc(100vw - 90px - 144px);
+    border-bottom: inherit !important;
+    display: flex;
+    flex-direction: column;
+    font-family: "Open Sans", sans-serif;
+    justify-content: space-between;
+    overflow: auto;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+#browse-card-content {
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+#browse-card-header {
+    color: #BBBBBB;
+    display: flex;
+    flex-direction: column;
+    font-size: inherit;
+    font-weight: inherit;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+#browse-card-header-top {
+    background-color: #7D93A4;
+    color: #FFFFFF;
+    font-size: 14px;
+    height: 42px;
+    justify-content: center;
+    padding: 0 15px;
+    align-items: center;
+    display: flex;
+    font-weight: inherit;
+}
+
+#browse-card-header-bottom {
+    align-items: center;
+    color: #BBB;
+    display: flex;
+    font-weight: inherit;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#browse-card-indicator {
+    color: #6F99B8;
+    height: 1em;
+    font-size: 1.35em;
+    left: 18px;
+    margin: 0;
+    opacity: 0.20;
+    position: absolute;
+    top: 60px;
+    width: 1em;
+    align-items: center;
+    display: flex;
+    font-family: "Mont Bold", Mont, sans-serif;
+}
+
+#browse-card-body-container {
+    padding: 1em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    font-family: "Open Sans", sans-serif;
+}
+
+#browse-card-body {
+    color: #333;
+    height: auto;
+    min-height: 30px;
+    margin: 0;
+    width: 100%;
+    font-size: 22px;
+}
+
+#browse-card-body-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+#browse-card-body-content > p {
+    color: #24292f;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.7em;
+    font-weight: 500;
+    line-height: 150%;
+    margin-top: 0;
+    text-align: center;
+    margin: inherit;
+    margin-bottom: 12px;
+}
