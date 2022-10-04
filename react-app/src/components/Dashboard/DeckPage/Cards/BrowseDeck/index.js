@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 
 import './BrowseDeck.css'
 
-function BrowseDeck() {
-    const { deckId } = useParams()
+function BrowseDeck({ deckId, classId }) {
+    const history = useHistory()
 
     const deck = useSelector(state => state.decks[Number(deckId)])
     const cards = useSelector(state => state.cards)
@@ -13,6 +13,16 @@ function BrowseDeck() {
 
     const [currCard, setCurrCard] = useState(0)
     const [sideA, setSideA] = useState(true)
+
+    if (!cardList.length) {
+        return (
+            <div className="empty-list-warning">
+                <h1>Browse Deck not Available</h1>
+                <h2>This Deck has no cards yet. Click Add Cards below to get started</h2>
+                <button className="pill-button modal-button" onClick={() => history.push(`/dashboard/${classId}/decks/${deckId}/cards/edit`)}> ADD CARDS </button>
+            </div>
+        )
+    }
 
     const handleNext = () => {
         setCurrCard(prev => prev + 1)
@@ -23,6 +33,7 @@ function BrowseDeck() {
         setCurrCard(prev => prev - 1)
         setSideA(true)
     }
+
 
     return (
         <>

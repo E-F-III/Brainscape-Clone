@@ -24,6 +24,10 @@ p {
   margin-inline-end: 0px;
 }
 
+.empty-list-warning {
+  padding: 30px;
+}
+
 .pill-button {
   align-items: center;
   background-color: #29A5DC;

@@ -75,13 +75,13 @@ function DeckPage() {
             </div>
             <Switch>
                 <Route path={`${url}/cards/preview`}>
-                    <PreviewCards />
+                    <PreviewCards classId={classId} deckId={deckId} />
                 </Route>
                 <Route path={`${url}/cards/edit`}>
                     <EditCards deckId={deckId} />
                 </Route>
                 <Route path={`${url}/cards/browse`}>
-                    <BrowseDeck />
+                    <BrowseDeck classId={classId} deckId={deckId} />
                 </Route>
             </Switch>
         </div>
