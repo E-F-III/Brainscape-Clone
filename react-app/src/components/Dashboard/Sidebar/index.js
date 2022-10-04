@@ -1,7 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getUserClassesThunk } from "../../../store/class";
+
+import whiteLogo from '../../../assets/white-logo.png'
 
 import './Sidebar.css'
 
@@ -16,13 +17,17 @@ function Sidebar() {
         <div id="sidebar">
             <header id="sidebar-header">
                 <div id="sidebar-header-top">
-                    <div id="splash-button"></div>
+                    <div id="splash-button" onClick={() => history.push('/')}>
+                        <img id="logo" src={whiteLogo} />
+                    </div>
                     <div id="sidebar-user-info">
                         <div></div>
-                        <h3>{sessionUser.username}</h3>
+                        <h3>{sessionUser.firstName} {sessionUser.lastName}</h3>
                         <div></div>
                     </div>
-                    <div id="profile-cog-container"></div>
+                    <div id="profile-cog-container">
+                        <ion-icon name="settings-sharp" size="large"></ion-icon>
+                    </div>
                 </div>
                 <div id="sidebar-header-bottom">
                     <h4 id="classes-heading">My classes ({classList.length})</h4>
@@ -36,18 +41,18 @@ function Sidebar() {
             <div id="sidebar-body">
                 {
                     classList.map(singleClass => (
-                            <div onClick={()=> history.push(`/dashboard/${singleClass.id}`)} key={singleClass.id} className="class-container">
-                                <div className="class-icon-container">
-                                    <img className="class-icon" src="https://www.brainscape.com/assets/app_icons/ugs.png" />
-                                </div>
-                                <div className="class-data">
-                                    <div className="class-title">{singleClass.title}</div>
-                                    {/* bonus feature : progress ?  */}
-                                    {/* <div className="class-progress"></div> */}
-                                </div>
-                                {/* feature 3: classes */}
-                                {/* <div className="class-remove-button"></div> */}
+                        <div onClick={() => history.push(`/dashboard/${singleClass.id}`)} key={singleClass.id} className="class-container">
+                            <div className="class-icon-container">
+                                <img className="class-icon" src="https://www.brainscape.com/assets/app_icons/ugs.png" />
                             </div>
+                            <div className="class-data">
+                                <div className="class-title">{singleClass.title}</div>
+                                {/* bonus feature : mastery + progress ?  */}
+                                {/* <div className="class-progress"></div> */}
+                            </div>
+                            {/* feature 3: classes */}
+                            {/* <div className="class-remove-button"></div> */}
+                        </div>
                     ))
                 }
             </div>

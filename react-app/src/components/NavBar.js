@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 import LoginFormModal from './auth/LoginFormModal';
 import LogoutButton from './auth/LogoutButton';
@@ -12,12 +12,19 @@ import transparentlogo from '../assets/l3.png'
 import './NavBar.css'
 
 const NavBar = () => {
+  const history = useHistory()
+
   const sessionUser = useSelector(state => state.session.user)
 
   let sessionLinks;
 
   if (sessionUser) {
-    sessionLinks = <LogoutButton />
+    sessionLinks = (
+      <>
+        <div id='login-button' onClick={() => history.push('/dashboard')}>My Classes</div>
+        <LogoutButton />
+      </>
+    )
   } else {
     sessionLinks = (
       <>

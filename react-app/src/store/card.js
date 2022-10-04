@@ -6,6 +6,8 @@ const CREATE_CARD = "cards/create-card"
 const UPDATE_CARD = "cards/update-card"
 const DELETE_CARD = "cards/delete-card"
 
+const CLEAR_CARDS = "cards/clear-cards"
+
 // Action Creators
 
 const getDeckCardsAction = payload => {
@@ -33,6 +35,12 @@ const deleteCardAction = payload => {
     return {
         type: DELETE_CARD,
         payload
+    }
+}
+
+export const clearCardsAction = () => {
+    return {
+        type: CLEAR_CARDS
     }
 }
 
@@ -124,6 +132,10 @@ const cardReducer = (state = initialState, action) => {
         case DELETE_CARD: {
             newState = { ...state };
             delete newState[action.payload]
+            return newState
+        }
+        case CLEAR_CARDS: {
+            newState = {}
             return newState
         }
         default: {

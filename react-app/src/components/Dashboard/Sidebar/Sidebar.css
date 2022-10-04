@@ -38,6 +38,23 @@
     width: 100%;
 }
 
+#logo {
+    width: 35px;
+    height: 35px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+#profile-cog-container {
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.4);
+    height: 30px;
+    width: 30px;
+}
+
 #classes-heading {
     color: rgba(255, 255, 255, 0.8);
     font-size: 15px;
