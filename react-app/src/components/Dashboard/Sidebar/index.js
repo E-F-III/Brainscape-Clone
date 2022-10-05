@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 import { logout } from '../../../store/session'
 
@@ -52,7 +52,7 @@ function Sidebar() {
             <div id="sidebar-body">
                 {
                     classList.map(singleClass => (
-                        <div onClick={() => history.push(`/dashboard/${singleClass.id}/decks`)} key={singleClass.id} className="class-container">
+                        <NavLink to={`/dashboard/${singleClass.id}/decks`} key={singleClass.id} className="class-container" activeClassName="class-container-active">
                             <div className="class-icon-container">
                                 <img className="class-icon" src="https://www.brainscape.com/assets/app_icons/ugs.png" />
                             </div>
@@ -63,7 +63,7 @@ function Sidebar() {
                             </div>
                             {/* feature 3: classes */}
                             {/* <div className="class-remove-button"></div> */}
-                        </div>
+                        </NavLink>
                     ))
                 }
             </div>
