@@ -36,9 +36,9 @@ function ClassPage() {
                 {/* <div className="class-tab-container">
                     <NavLink className="class-tab" to={`${url}/about`}>About</NavLink>
                 </div> */}
-                <div className="class-tab-container">
-                    <NavLink className="class-tab" to={`${url}/decks`}>Decks</NavLink>
-                </div>
+                <NavLink to={`${url}/decks`} className="class-tab-container" activeClassName="class-tab-active">
+                    <div className="class-tab">Decks</div>
+                </NavLink>
             </div>
             <Switch>
                 {/* Feature 3 Classes */}
