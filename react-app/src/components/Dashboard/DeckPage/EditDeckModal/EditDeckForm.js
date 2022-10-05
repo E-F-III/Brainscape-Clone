@@ -11,7 +11,7 @@ const EditDeckForm = ({ deckId, setShowModal }) => {
     const deck = useSelector(state => state.decks[Number(deckId)])
 
     const [title, setTitle] = useState(deck.title)
-    const [description, setDescription] = useState(deck.description)
+    const [description, setDescription] = useState(deck.description || '')
 
     const [validationErrors, setValidationErrors] = useState([])
     const [isSubmitted, setIsSubmitted] = useState(false)
