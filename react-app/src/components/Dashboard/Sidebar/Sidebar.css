@@ -35,7 +35,9 @@
 #sidebar-header-bottom {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    /* width: 100%; */
+    margin: 30px 30px 18px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
 }
 
 #logo {
@@ -86,6 +88,27 @@
     padding: 15px 0 15px 40px;
 }
 
+#sidebar-footer {
+    margin: 30px 30px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#sidebar-footer-header {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+#dev-about-links {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
 /* Feature Classes  */
 
 .class-icon-container {
@@ -112,4 +135,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 186px;
+}
+
+#dev-about-links > a {
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-decoration: none;
 }

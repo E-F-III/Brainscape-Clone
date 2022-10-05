@@ -39,15 +39,16 @@ function Sidebar() {
                         <ion-icon name="log-out-outline" size="large"></ion-icon>
                     </div>
                 </div>
-                <div id="sidebar-header-bottom">
-                    <h4 id="classes-heading">My classes ({classList.length})</h4>
-                    {/* feature 3: classes and feature 4: search classes */}
-                    {/* <div id="classes-buttons">
+
+            </header>
+            <div id="sidebar-header-bottom">
+                <h4 id="classes-heading">My classes ({classList.length})</h4>
+                {/* feature 3: classes and feature 4: search classes */}
+                {/* <div id="classes-buttons">
                         <div id="create-class"></div>
                         <div id="search-classes"></div>
                     </div> */}
-                </div>
-            </header>
+            </div>
             <div id="sidebar-body">
                 {
                     classList.map(singleClass => (
@@ -66,7 +67,22 @@ function Sidebar() {
                     ))
                 }
             </div>
-            <footer id="sidebar-footer"></footer>
+            <footer id="sidebar-footer">
+                <div id="sidebar-footer-header">DEV LINKS</div>
+                <div id="dev-about-links">
+
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/efiii/">
+                        <ion-icon size="large" name="logo-linkedin"></ion-icon>
+                    </a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/E-F-III/Brainscape-Clone">
+                        <ion-icon size="large" name="logo-github"></ion-icon>
+                    </a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/edwardfelipeiii/">
+                        <ion-icon size="large" name="logo-instagram"></ion-icon>
+                    </a>
+
+                </div>
+            </footer>
         </div>
     )
 }
