@@ -16,6 +16,7 @@
     display: flex-start;
     justify-content: center;
     width: 36px;
+    display: flex;
 }
 
 #card-gutter-right {
@@ -23,6 +24,7 @@
     display: flex-end;
     justify-content: center;
     width: 36px;
+    display: flex;
 }
 
 .browse-card-button-container {
@@ -173,9 +175,10 @@
     padding: 1em;
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100%;
     justify-content: space-between;
+    align-items: center;
     font-family: "Open Sans", sans-serif;
 }
 

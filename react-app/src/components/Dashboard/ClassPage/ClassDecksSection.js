@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams, useRouteMatch } from "react-router-dom";
+import { NavLink, useHistory, useParams, useRouteMatch } from "react-router-dom";
 
 import { getClassDecksThunk } from "../../../store/deck";
 
@@ -29,7 +29,7 @@ function DecksSection({ classId }) {
         <div id="deck-list">
             {
                 deckList.map(deck => (
-                    <div className="deck-container">
+                    <NavLink to={`${url}/${deck.id}/cards/preview`} className="deck-container">
                         {/* Feature 4: Mastery
                         <div></div> */}
                         <div className="deck-info">
@@ -42,11 +42,11 @@ function DecksSection({ classId }) {
                         <div className="deck-container-buttons">
                             {/* Feature 2 Cards (study)
                             <div></div> */}
-                            <div onClick={() => history.push(`${url}/${deck.id}`)} className="deck-view-button-container">
-                                <ion-icon name="chevron-forward-outline" />
+                            <div onClick={() => history.push(`${url}/${deck.id}/cards/preview`)} className="deck-view-button-container">
+                                <ion-icon size="large" name="chevron-forward-outline" />
                             </div>
                         </div>
-                    </div>
+                    </NavLink>
                 ))
             }
             <DeckFormModal classId={classId}/>

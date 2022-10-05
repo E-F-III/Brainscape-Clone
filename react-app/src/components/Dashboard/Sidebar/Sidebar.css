@@ -35,7 +35,26 @@
 #sidebar-header-bottom {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    /* width: 100%; */
+    margin: 30px 30px 18px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+#logo {
+    width: 35px;
+    height: 35px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+#profile-cog-container {
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.4);
+    height: 30px;
+    width: 30px;
 }
 
 #classes-heading {
@@ -67,7 +86,48 @@
     padding-left: 40px;
     position: relative;
     padding: 15px 0 15px 40px;
+    border-left: 10px solid transparent white;
 }
+
+.class-container-active {
+    height: 40px;
+    margin-bottom: 36px;
+    margin-top: 0;
+    border-left: 8px solid transparent;
+    cursor: pointer;
+    display: flex;
+    height: 72px;
+    margin-bottom: 18px;
+    margin-top: 18px;
+    margin: 0;
+    padding-left: 40px;
+    position: relative;
+    padding: 15px 0 15px 40px;
+    border-left: 10px solid white;
+}
+
+#sidebar-footer {
+    margin: 30px 30px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#sidebar-footer-header {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+#dev-about-links {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Feature Classes  */
 
 .class-icon-container {
     margin-right: 18px;
@@ -93,4 +153,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 186px;
+}
+
+#dev-about-links > a {
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-decoration: none;
 }

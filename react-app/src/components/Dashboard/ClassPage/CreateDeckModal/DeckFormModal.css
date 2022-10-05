@@ -14,3 +14,7 @@
     text-align: center;
     white-space: pre-wrap;
 }
+
+#create-deck-button-container {
+    color: orange;
+}

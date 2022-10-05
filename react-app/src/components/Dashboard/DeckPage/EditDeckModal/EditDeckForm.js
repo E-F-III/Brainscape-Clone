@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { updateDeckThunk } from '../../../../store/deck';
@@ -11,10 +11,21 @@ const EditDeckForm = ({ deckId, setShowModal }) => {
     const deck = useSelector(state => state.decks[Number(deckId)])
 
     const [title, setTitle] = useState(deck.title)
-    const [description, setDescription] = useState(deck.description)
+    const [description, setDescription] = useState(deck.description || '')
 
     const [validationErrors, setValidationErrors] = useState([])
     const [isSubmitted, setIsSubmitted] = useState(false)
+
+    useEffect(() => {
+        const newValidationErrors = []
+
+        if (title.length === 0) newValidationErrors.push('Please provide a title')
+        if (title.length > 50) newValidationErrors.push('Title must not exceed 50 characters')
+
+        if (description.length > 5000) newValidationErrors.push('Description must not exceed 5000 characters')
+
+        setValidationErrors(newValidationErrors)
+    }, [title, description])
 
     const handleSubmit = async e => {
         e.preventDefault()
@@ -32,6 +43,7 @@ const EditDeckForm = ({ deckId, setShowModal }) => {
 
         const data = await dispatch(updateDeckThunk(payload))
 
+        setIsSubmitted(false)
         setShowModal(false)
     }
 
@@ -40,6 +52,11 @@ const EditDeckForm = ({ deckId, setShowModal }) => {
             <div id='edit-deck-header'>
                 Edit Deck
             </div>
+            {isSubmitted && validationErrors.length > 0 && (
+                <div>
+                    {validationErrors.map((error, ind) => <div key={ind} className='errors'>{error}</div>)}
+                </div>
+            )}
             <form onSubmit={handleSubmit}>
                 <div className='text-field'>
                     <div className='field-label'>Title</div>

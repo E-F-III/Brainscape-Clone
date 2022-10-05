@@ -27,7 +27,7 @@ function Dashboard() {
   }, [dispatch])
 
   if (classList.length && pathname === '/dashboard' ){ // redirect to the users FIRST class
-    return <Redirect to={`${url}/${classList[0].id}`} />
+    return <Redirect to={`${url}/${classList[0].id}/decks`} />
   }
 
   return isLoaded && (
