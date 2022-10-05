@@ -39,10 +39,10 @@ function EditCards({ deckId }) {
         <>
             <div id='edit-card-container'>
                 <div id='deck-editor'>
-                    <div id='deck-editor-side-bar'>
+                    {/* <div id='deck-editor-side-bar'>
                         <div id='deck-editor-side-bar-header'></div>
                         <div id='deck-editor-side-bar-card-list'></div>
-                    </div>
+                    </div> */}
                     <div id='deck-editor-main'>
                         <div id='deck-editor-cards'>
                             {/* map edit cards here  */}
