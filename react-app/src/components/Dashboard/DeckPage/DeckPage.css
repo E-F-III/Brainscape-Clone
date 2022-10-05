@@ -98,6 +98,10 @@
     /* padding-bottom: 6px; */
 }
 
+.deck-tab-container:hover {
+    border-bottom: 8px solid rgba(18, 57, 108, 0.1);
+}
+
 .deck-tab{
     /* border-bottom: 8px solid transparent; */
     color: rgba(70, 80, 94, 0.8);
@@ -114,7 +118,7 @@
 }
 
 .deck-tab-active {
-    border-bottom: 8px solid rgba(18, 57, 108, 0.36);
+    border-bottom: 8px solid rgba(18, 57, 108, 0.36) !important;
     font-size: 14px;
     /* padding-bottom: 4px; */
     cursor: pointer;
