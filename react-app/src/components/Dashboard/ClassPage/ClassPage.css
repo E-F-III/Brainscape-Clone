@@ -96,6 +96,8 @@
     margin: 0;
     padding-bottom: 72px;
     padding-left: 0;
+    height: calc(100vh - 250px);
+    overflow-y: scroll;
 }
 
 .deck-container {
@@ -107,12 +109,21 @@
     padding: 24px 30px 24px 42px;
     position: relative;
     width: 100%;
+    justify-content: space-between;
+    text-decoration: none;
+    color: inherit;
+}
+
+.deck-container:hover {
+    background-color: rgb(195, 218, 228, 0.1);
+    /* color: ; */
 }
 
 .deck-info-top {
     align-items: center;
     display: flex;
     flex: 1;
+    font-size: large;
 }
 
 #new-deck-label {
