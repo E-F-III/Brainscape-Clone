@@ -62,15 +62,15 @@ function DeckPage() {
                     <div></div> */}
                 </div>
                 <div id="deck-tabs">
-                    <div className="deck-tab-container">
-                        <NavLink className="deck-tab" to={`${url}/cards/preview`}>Preview Cards</NavLink>
-                    </div>
-                    <div className="deck-tab-container">
-                        <NavLink className="deck-tab" to={`${url}/cards/edit`}>Edit Cards</NavLink>
-                    </div>
-                    <div className="deck-tab-container">
-                        <NavLink className="deck-tab" to={`${url}/cards/browse`}>Browse Deck</NavLink>
-                    </div>
+                    <NavLink to={`${url}/cards/preview`} className="deck-tab-container" activeClassName="deck-tab-active">
+                        <div className="deck-tab" >Preview Cards</div>
+                    </NavLink>
+                    <NavLink to={`${url}/cards/edit`} className="deck-tab-container" activeClassName="deck-tab-active">
+                        <div className="deck-tab" >Edit Cards</div>
+                    </NavLink>
+                    <NavLink to={`${url}/cards/browse`} className="deck-tab-container" activeClassName="deck-tab-active">
+                        <div className="deck-tab" >Browse Deck</div>
+                    </NavLink>
                 </div>
             </div>
             <Switch>

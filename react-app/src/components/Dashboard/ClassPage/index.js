@@ -32,6 +32,7 @@ function ClassPage() {
                 <div></div>
             </div>
             <div id="class-tabs">
+                {/* Feature 3 Classes */}
                 {/* <div className="class-tab-container">
                     <NavLink className="class-tab" to={`${url}/about`}>About</NavLink>
                 </div> */}
@@ -40,6 +41,7 @@ function ClassPage() {
                 </div>
             </div>
             <Switch>
+                {/* Feature 3 Classes */}
                 {/* <Route path={`${url}/about`}></Route> */}
                 <Route path={`${url}/decks`}>
                     <DecksSection classId={classId}/>
