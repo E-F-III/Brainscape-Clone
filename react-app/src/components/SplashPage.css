@@ -26,7 +26,9 @@
     margin-right: 4%;
     margin-left: 4%;
     white-space: pre-line!important;
-    color: white
+    color: white;
+    width: 50%;
+    text-shadow: 3px 3px black;
 }
 
 #splash-text > h1 {
@@ -48,4 +50,39 @@
 
 #splash-text > h3 > span {
     font-weight: bold;
+}
+
+#splash-text > p {
+    font-size: 20px;
+}
+
+#splash-footer {
+    color: white;
+    width: 50%;
+}
+
+#splash-footer-header {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+#splash-dev-about-links {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#splash-dev-about-links > a {
+    color: rgba(255, 255, 255, 1) !important;
+    text-decoration: none;
+    /* text-shadow: 3px 3px black; */
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

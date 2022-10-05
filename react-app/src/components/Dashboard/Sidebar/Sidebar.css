@@ -127,6 +127,11 @@
     justify-content: space-around;
 }
 
+#dev-about-links > a {
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-decoration: none;
+}
+
 /* Feature Classes  */
 
 .class-icon-container {
@@ -153,9 +158,4 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 186px;
-}
-
-#dev-about-links > a {
-    color: rgba(255, 255, 255, 0.6) !important;
-    text-decoration: none;
 }
