@@ -12,6 +12,22 @@ function ClassPage() {
 
     const singleClass = useSelector(state => state.classes[Number(classId)])
 
+    if (!singleClass) {
+        return (
+            <div style={{
+                padding:"20px",
+                justifyContent: "center",
+                alignItems: "center",
+                width:"100%",
+                height: "100%",
+                display: "flex",
+                fontSize: "50px"
+            }}>
+                Class Not Found
+            </div>
+        )
+    }
+
     return (
         <div>
             <div id="class-header">

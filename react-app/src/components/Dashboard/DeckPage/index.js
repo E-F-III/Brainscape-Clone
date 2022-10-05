@@ -34,6 +34,22 @@ function DeckPage() {
         })()
     }, [dispatch])
 
+    if (!deck) {
+        return (
+            <div style={{
+                padding:"20px",
+                justifyContent: "center",
+                alignItems: "center",
+                width:"100%",
+                height: "100%",
+                display: "flex",
+                fontSize: "50px"
+            }}>
+                Deck Not Found
+            </div>
+        )
+    }
+
     return isLoaded && (
         <div>
             <div id="deck-header">
