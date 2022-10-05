@@ -16,6 +16,7 @@
     display: flex-start;
     justify-content: center;
     width: 36px;
+    display: flex;
 }
 
 #card-gutter-right {
@@ -23,6 +24,7 @@
     display: flex-end;
     justify-content: center;
     width: 36px;
+    display: flex;
 }
 
 .browse-card-button-container {

@@ -43,7 +43,7 @@ function BrowseDeck({ deckId, classId }) {
                         <div class='browse-card-button-container'
                             style={{ visibility: currCard > 0 ? "visible" : "hidden" }}
                             onClick={handlePrev}>
-                            <ion-icon name="caret-back-outline"></ion-icon>
+                            <ion-icon size="large" name="caret-back-outline"></ion-icon>
                         </div>
                     </div>
                     <div id='browse-card-container'>
@@ -74,7 +74,7 @@ function BrowseDeck({ deckId, classId }) {
                         <div class='browse-card-button-container'
                         style={{ visibility: currCard + 1 < cardList.length ? "visible" : "hidden" }}
                         onClick={handleNext}>
-                            <ion-icon name="caret-forward-outline"></ion-icon>
+                            <ion-icon size="large" name="caret-forward-outline"></ion-icon>
                         </div>
                     </div>
                 </div>
