@@ -34,6 +34,22 @@ function DeckPage() {
         })()
     }, [dispatch])
 
+    if (!deck) {
+        return (
+            <div style={{
+                padding:"20px",
+                justifyContent: "center",
+                alignItems: "center",
+                width:"100%",
+                height: "100%",
+                display: "flex",
+                fontSize: "50px"
+            }}>
+                Deck Not Found
+            </div>
+        )
+    }
+
     return isLoaded && (
         <div>
             <div id="deck-header">
@@ -62,26 +78,26 @@ function DeckPage() {
                     <div></div> */}
                 </div>
                 <div id="deck-tabs">
-                    <div className="deck-tab-container">
-                        <NavLink className="deck-tab" to={`${url}/cards/preview`}>Preview Cards</NavLink>
-                    </div>
-                    <div className="deck-tab-container">
-                        <NavLink className="deck-tab" to={`${url}/cards/edit`}>Edit Cards</NavLink>
-                    </div>
-                    <div className="deck-tab-container">
-                        <NavLink className="deck-tab" to={`${url}/cards/browse`}>Browse Deck</NavLink>
-                    </div>
+                    <NavLink to={`${url}/cards/preview`} className="deck-tab-container" activeClassName="deck-tab-active">
+                        <div className="deck-tab" >Preview Cards</div>
+                    </NavLink>
+                    <NavLink to={`${url}/cards/edit`} className="deck-tab-container" activeClassName="deck-tab-active">
+                        <div className="deck-tab" >Edit Cards</div>
+                    </NavLink>
+                    <NavLink to={`${url}/cards/browse`} className="deck-tab-container" activeClassName="deck-tab-active">
+                        <div className="deck-tab" >Browse Deck</div>
+                    </NavLink>
                 </div>
             </div>
             <Switch>
                 <Route path={`${url}/cards/preview`}>
-                    <PreviewCards />
+                    <PreviewCards classId={classId} deckId={deckId} />
                 </Route>
                 <Route path={`${url}/cards/edit`}>
                     <EditCards deckId={deckId} />
                 </Route>
                 <Route path={`${url}/cards/browse`}>
-                    <BrowseDeck />
+                    <BrowseDeck classId={classId} deckId={deckId} />
                 </Route>
             </Switch>
         </div>

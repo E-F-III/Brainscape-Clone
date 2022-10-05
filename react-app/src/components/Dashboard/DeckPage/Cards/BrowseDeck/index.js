@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 
 import './BrowseDeck.css'
 
-function BrowseDeck() {
-    const { deckId } = useParams()
+function BrowseDeck({ deckId, classId }) {
+    const history = useHistory()
 
     const deck = useSelector(state => state.decks[Number(deckId)])
     const cards = useSelector(state => state.cards)
@@ -13,6 +13,16 @@ function BrowseDeck() {
 
     const [currCard, setCurrCard] = useState(0)
     const [sideA, setSideA] = useState(true)
+
+    if (!cardList.length) {
+        return (
+            <div className="empty-list-warning">
+                <h1>Browse Deck not Available</h1>
+                <h2>This Deck has no cards yet. Click Add Cards below to get started</h2>
+                <button className="pill-button modal-button" onClick={() => history.push(`/dashboard/${classId}/decks/${deckId}/cards/edit`)}> ADD CARDS </button>
+            </div>
+        )
+    }
 
     const handleNext = () => {
         setCurrCard(prev => prev + 1)
@@ -24,6 +34,7 @@ function BrowseDeck() {
         setSideA(true)
     }
 
+
     return (
         <>
             <div id='browse-deck-container'>
@@ -32,7 +43,7 @@ function BrowseDeck() {
                         <div class='browse-card-button-container'
                             style={{ visibility: currCard > 0 ? "visible" : "hidden" }}
                             onClick={handlePrev}>
-                            <ion-icon name="caret-back-outline"></ion-icon>
+                            <ion-icon size="large" name="caret-back-outline"></ion-icon>
                         </div>
                     </div>
                     <div id='browse-card-container'>
@@ -63,7 +74,7 @@ function BrowseDeck() {
                         <div class='browse-card-button-container'
                         style={{ visibility: currCard + 1 < cardList.length ? "visible" : "hidden" }}
                         onClick={handleNext}>
-                            <ion-icon name="caret-forward-outline"></ion-icon>
+                            <ion-icon size="large" name="caret-forward-outline"></ion-icon>
                         </div>
                     </div>
                 </div>

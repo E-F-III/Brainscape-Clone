@@ -44,7 +44,7 @@
 }
 
 .class-tab-container {
-    border-bottom: 3px solid transparent;
+    border-bottom: 8px solid transparent;
     color: rgba(255, 255, 255, 0.3);
     cursor: pointer;
     flex: 1;
@@ -54,13 +54,50 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    padding-bottom: 6px;
+    /* padding-bottom: 6px; */
+}
+
+.class-tab{
+    /* border-bottom: 8px solid transparent; */
+    color: rgba(70, 80, 94, 0.8);
+    font-size: 14px;
+    /* padding-bottom: 4px; */
+    cursor: pointer;
+    flex: 1;
+    font-weight: 400;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.class-tab-active {
+    border-bottom: 8px solid rgba(18, 57, 108, 0.36);
+    font-size: 14px;
+    /* padding-bottom: 4px; */
+    cursor: pointer;
+    flex: 1;
+    font-weight: 400;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    text-decoration: none;
+}
+
+.class-tab-active > .class-tab{
+    color: #46505e;
+    font-weight: bold;
 }
 
 #deck-list {
     margin: 0;
     padding-bottom: 72px;
     padding-left: 0;
+    height: calc(100vh - 250px);
+    overflow-y: scroll;
 }
 
 .deck-container {
@@ -72,12 +109,21 @@
     padding: 24px 30px 24px 42px;
     position: relative;
     width: 100%;
+    justify-content: space-between;
+    text-decoration: none;
+    color: inherit;
+}
+
+.deck-container:hover {
+    background-color: rgb(195, 218, 228, 0.1);
+    /* color: ; */
 }
 
 .deck-info-top {
     align-items: center;
     display: flex;
     flex: 1;
+    font-size: large;
 }
 
 #new-deck-label {

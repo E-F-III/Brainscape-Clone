@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { createDeckThunk } from '../../../../store/deck';
@@ -12,6 +12,14 @@ const DeckForm = ({ classId, setShowModal }) => {
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [title, setTitle] = useState('');
 
+    useEffect(() => {
+        const newValidationErrors = []
+
+        if (title.length === 0) newValidationErrors.push('Please provide a title')
+        if (title.length > 50) newValidationErrors.push('Title must not exceed 50 characters')
+
+        setValidationErrors(newValidationErrors)
+    }, [title])
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -29,20 +37,20 @@ const DeckForm = ({ classId, setShowModal }) => {
 
         const data = await dispatch(createDeckThunk(payload));
 
+        setIsSubmitted(false)
         setShowModal(false)
-
     };
 
     return (
         <>
             <div id='create-deck-header'>Create New Deck</div>
             <div id='create-deck-subheader'>A Deck is a subset of Flashcards in a Class, similar to chapters in a book</div>
-            <form onSubmit={onSubmit}>
+            {isSubmitted && validationErrors.length > 0 && (
                 <div>
-                    {validationErrors.map((error, ind) => (
-                        <div key={ind}>{error}</div>
-                    ))}
+                    {validationErrors.map((error, ind) => <div key={ind} className='errors'>{error}</div>)}
                 </div>
+            )}
+            <form onSubmit={onSubmit}>
                 <div>
                     <input className='form-input'
                         name='title'

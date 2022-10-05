@@ -12,6 +12,22 @@ function ClassPage() {
 
     const singleClass = useSelector(state => state.classes[Number(classId)])
 
+    if (!singleClass) {
+        return (
+            <div style={{
+                padding:"20px",
+                justifyContent: "center",
+                alignItems: "center",
+                width:"100%",
+                height: "100%",
+                display: "flex",
+                fontSize: "50px"
+            }}>
+                Class Not Found
+            </div>
+        )
+    }
+
     return (
         <div>
             <div id="class-header">
@@ -32,15 +48,17 @@ function ClassPage() {
                 <div></div>
             </div>
             <div id="class-tabs">
-                <div className="class-tab-container">
+                {/* Feature 3 Classes */}
+                {/* <div className="class-tab-container">
                     <NavLink className="class-tab" to={`${url}/about`}>About</NavLink>
-                </div>
-                <div className="class-tab-container">
-                    <NavLink className="class-tab" to={`${url}/decks`}>Decks</NavLink>
-                </div>
+                </div> */}
+                <NavLink to={`${url}/decks`} className="class-tab-container" activeClassName="class-tab-active">
+                    <div className="class-tab">Decks</div>
+                </NavLink>
             </div>
             <Switch>
-                <Route path={`${url}/about`}></Route>
+                {/* Feature 3 Classes */}
+                {/* <Route path={`${url}/about`}></Route> */}
                 <Route path={`${url}/decks`}>
                     <DecksSection classId={classId}/>
                 </Route>

@@ -6,8 +6,8 @@ class Card(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     deck_id = db.Column(db.Integer, db.ForeignKey('decks.id'), nullable=False)
-    question = db.Column(db.String(), nullable=False)
-    answer = db.Column(db.String(), nullable=False)
+    question = db.Column(db.String(500), nullable=False)
+    answer = db.Column(db.String(500), nullable=False)
 
     owner = db.relationship("User", back_populates='cards')
     deck = db.relationship("Deck", back_populates='cards')

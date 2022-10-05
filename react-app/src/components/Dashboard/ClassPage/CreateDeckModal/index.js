@@ -12,19 +12,22 @@ function DeckFormModal({ classId }) {
     return (
         <>
             <div onClick={() => setShowModal(true)} className="deck-container">
-                <div id="create-deck-button-container">
-                    <ion-icon name="add-outline" />
-                </div>
+
+
                 <div className="deck-info">
                     <div className="deck-info-top">
                         <h4 id="new-deck-label">Create New Deck</h4>
                     </div>
                 </div>
+                <div id="create-deck-button-container">
+                    <ion-icon size="large" name="add-outline" />
+                </div>
+
 
             </div>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <DeckForm classId={classId} setShowModal={setShowModal}/>
+                    <DeckForm classId={classId} setShowModal={setShowModal} />
                 </Modal>
             )}
         </>

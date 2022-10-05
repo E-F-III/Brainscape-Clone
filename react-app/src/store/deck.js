@@ -6,6 +6,8 @@ const CREATE_DECK = "decks/create-deck"
 const UPDATE_DECK = "decks/update-deck"
 const DELETE_DECK = "decks/delete-deck"
 
+const CLEAR_DECKS = "decks/clear-decks"
+
 // Action Creators
 
 const getClassDecksAction = payload => {
@@ -33,6 +35,12 @@ const deleteDeckAction = payload => {
     return {
         type: DELETE_DECK,
         payload
+    }
+}
+
+export const clearDecksAction = () => {
+    return {
+        type: CLEAR_DECKS
     }
 }
 
@@ -124,6 +132,10 @@ const deckReducer = (state = initialState, action) => {
         case DELETE_DECK: {
             newState = { ...state };
             delete newState[action.payload]
+            return newState
+        }
+        case CLEAR_DECKS: {
+            newState = {}
             return newState
         }
         default: {

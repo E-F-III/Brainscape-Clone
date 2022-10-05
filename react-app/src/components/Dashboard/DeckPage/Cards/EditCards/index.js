@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
 
 import CardForm from './CardForm'
 
@@ -23,7 +22,7 @@ function EditCards({ deckId }) {
                 <div id='create-card-body-container'>
                     <div onClick={() => setShowCreateCard(true)} id='create-card-body'>
                         <div className="general-edit-buttons">
-                            <ion-icon name="add"></ion-icon>
+                            <ion-icon size="large" style={{color: 'orange'}} name="add"></ion-icon>
                         </div>
                         <div id='create-card-prompt'>
                             Create New Card
@@ -39,10 +38,10 @@ function EditCards({ deckId }) {
         <>
             <div id='edit-card-container'>
                 <div id='deck-editor'>
-                    <div id='deck-editor-side-bar'>
+                    {/* <div id='deck-editor-side-bar'>
                         <div id='deck-editor-side-bar-header'></div>
                         <div id='deck-editor-side-bar-card-list'></div>
-                    </div>
+                    </div> */}
                     <div id='deck-editor-main'>
                         <div id='deck-editor-cards'>
                             {/* map edit cards here  */}

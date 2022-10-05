@@ -32,6 +32,11 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
+  const handleDemo = async e => {
+      setEmail('demo@aa.io');
+      setPassword('password');
+  }
+
   if (user) {
     return <Redirect to='/' />;
   }
@@ -74,6 +79,8 @@ const LoginForm = () => {
         <div className='modal-buttons'>
           {/* <div onClick={onLogin} className="pill-button modal-button">Log In</div> */}
           <button type='submit' className="pill-button modal-button">Log In</button>
+          <p>or</p>
+          <button type='submit' onClick={handleDemo} className="pill-button modal-button">Demo Log In</button>
         </div>
 
       </form>
