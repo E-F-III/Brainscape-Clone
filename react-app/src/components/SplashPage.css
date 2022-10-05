@@ -13,45 +13,45 @@
     max-height: calc(100vh - 72px);
 }
 
-.splash-image-container > img {
+.splash-image-container>img {
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
 #splash-text {
-    position: absolute;
-    bottom: 20%;
+    position: relative;
+    top: 100px;
     margin-right: 4%;
     margin-left: 4%;
-    white-space: pre-line!important;
+    white-space: pre-line !important;
     color: white;
     width: 50%;
     text-shadow: 3px 3px black;
 }
 
-#splash-text > h1 {
+#splash-text>h1 {
     color: #FFFFFF;
     font-family: "Mont Bold", Mont, sans-serif;
     font-weight: 900;
     line-height: 1;
     margin: 0;
-    font-size: calc(66px  +  84  * ((100vw -  320px ) / 1600 ));
+    font-size: calc(66px + 84 * ((100vw - 320px) / 1600));
 }
 
-#splash-text > h3 {
+#splash-text>h3 {
     color: #FFFFFF;
     font-weight: 300;
     margin-bottom: 4rem;
     line-height: 0;
-    font-size: calc(21px  +  12  * ((100vw -  320px ) / 1600 ));
+    font-size: calc(21px + 12 * ((100vw - 320px) / 1600));
 }
 
-#splash-text > h3 > span {
+#splash-text>h3>span {
     font-weight: bold;
 }
 
-#splash-text > p {
+#splash-text>p {
     font-size: 20px;
 }
 
@@ -73,7 +73,7 @@
     justify-content: space-around;
 }
 
-#splash-dev-about-links > a {
+#splash-dev-about-links>a {
     color: rgba(255, 255, 255, 1) !important;
     text-decoration: none;
     /* text-shadow: 3px 3px black; */
@@ -84,4 +84,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.carousel-root {
+    position: absolute !important;
+    z-index: -1 !important;
 }
