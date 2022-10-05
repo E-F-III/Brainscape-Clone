@@ -4,12 +4,18 @@
     flex-direction: column;
     padding: 27px 0;
     position: relative;
+
+    height: calc(100vh - 114px);
+    z-index: 1;
+    overflow-y: auto;
 }
 
 #preview-cards-table {
     background-color: #fbfbfb;
     padding: 0;
     height: calc(100vh - 114px);
+    z-index: 1;
+    overflow-y: auto;
 }
 
 #preview-cards-list {

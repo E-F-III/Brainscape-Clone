@@ -23,7 +23,7 @@ function EditCards({ deckId }) {
                 <div id='create-card-body-container'>
                     <div onClick={() => setShowCreateCard(true)} id='create-card-body'>
                         <div className="general-edit-buttons">
-                            <ion-icon name="add"></ion-icon>
+                            <ion-icon size="large" style={{color: 'orange'}} name="add"></ion-icon>
                         </div>
                         <div id='create-card-prompt'>
                             Create New Card
