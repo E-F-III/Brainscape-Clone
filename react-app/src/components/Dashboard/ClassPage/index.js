@@ -32,15 +32,15 @@ function ClassPage() {
                 <div></div>
             </div>
             <div id="class-tabs">
-                <div className="class-tab-container">
+                {/* <div className="class-tab-container">
                     <NavLink className="class-tab" to={`${url}/about`}>About</NavLink>
-                </div>
+                </div> */}
                 <div className="class-tab-container">
                     <NavLink className="class-tab" to={`${url}/decks`}>Decks</NavLink>
                 </div>
             </div>
             <Switch>
-                <Route path={`${url}/about`}></Route>
+                {/* <Route path={`${url}/about`}></Route> */}
                 <Route path={`${url}/decks`}>
                     <DecksSection classId={classId}/>
                 </Route>
