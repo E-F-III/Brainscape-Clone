@@ -6,13 +6,13 @@ import DecksSection from "./ClassDecksSection";
 
 import './ClassPage.css'
 
-function ClassPage() {
+function ClassPage({ isLoaded }) {
     const { classId } = useParams()
     const { url } = useRouteMatch()
 
     const singleClass = useSelector(state => state.classes[Number(classId)])
 
-    if (!singleClass) {
+    if (isLoaded && !singleClass) {
         return (
             <div style={{
                 padding:"20px",

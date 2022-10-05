@@ -39,7 +39,7 @@ function Dashboard() {
             <DeckPage />
           </Route>
           <Route path={`${url}/:classId`}>
-            <ClassPage />
+            <ClassPage isLoaded={isLoaded}/>
           </Route>
           {/* <Route path={`${url}/`}>
             <h1>Select a class to view</h1>

@@ -34,7 +34,7 @@ function DeckPage() {
         })()
     }, [dispatch])
 
-    if (!deck) {
+    if (isLoaded && !deck) {
         return (
             <div style={{
                 padding:"20px",
