@@ -32,6 +32,7 @@
     font-weight: 900;
     text-align: center;
     text-transform: capitalize;
+    max-width: 100%;
 }
 
 #deck-modal-description {
@@ -40,4 +41,5 @@
     line-height: 150%;
     text-align: center;
     white-space: pre-wrap;
+    max-width: 100%;
 }

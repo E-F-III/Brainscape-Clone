@@ -12,7 +12,7 @@
     padding: 0;
     position: relative;
     width: 340px;
-    z-index: 10001;
+    z-index: 99;
 }
 
 #sidebar-header {
@@ -55,6 +55,7 @@
     color: rgba(255, 255, 255, 0.4);
     height: 30px;
     width: 30px;
+    cursor: pointer;
 }
 
 #classes-heading {
