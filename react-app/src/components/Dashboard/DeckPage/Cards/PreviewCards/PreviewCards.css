@@ -2,7 +2,6 @@
     background-color: #fbfbfb;
     display: flex;
     flex-direction: column;
-    padding: 27px 0;
     position: relative;
 
     height: calc(100vh - 114px);
