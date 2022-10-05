@@ -1,17 +1,26 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+
+import { logout } from '../../../store/session'
 
 import whiteLogo from '../../../assets/white-logo.png'
 
 import './Sidebar.css'
 
 function Sidebar() {
+    const dispatch = useDispatch()
     const history = useHistory()
     const sessionUser = useSelector(state => state.session.user)
 
     const classes = useSelector(state => state.classes)
     const classList = Object.values(classes)
+
+    const onLogout = async (e) => {
+        await dispatch(logout());
+        history.push('/')
+    };
+
 
     return (
         <div id="sidebar">
@@ -25,8 +34,9 @@ function Sidebar() {
                         <h3>{sessionUser.firstName} {sessionUser.lastName}</h3>
                         <div></div>
                     </div>
-                    <div id="profile-cog-container">
-                        <ion-icon name="settings-sharp" size="large"></ion-icon>
+                    <div id="profile-cog-container" onClick={onLogout}>
+                        {/* <ion-icon name="settings-sharp" size="large"></ion-icon> */}
+                        <ion-icon name="log-out-outline" size="large"></ion-icon>
                     </div>
                 </div>
                 <div id="sidebar-header-bottom">
