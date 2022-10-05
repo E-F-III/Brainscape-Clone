@@ -29,6 +29,8 @@ function Splashpage() {
                 infiniteLoop={true}
                 transitionTime={1000}
                 interval={3000}
+
+                style={{position: "relative"}}
             >
                 <div className='splash-image-container'>
                     <img src={simg1} />
@@ -46,6 +48,11 @@ function Splashpage() {
                     <img src={simg5} />
                 </div>
             </Carousel>
+
+            <div id='splash-text'>
+                <h1>Rise to your challenge.</h1>
+                <h3>Flaskcards for <span>serious learners</span></h3>
+            </div>
         </div>
     )
 }

@@ -2,6 +2,8 @@
     width: 100vw;
     object-fit: cover;
     max-height: calc(100vh - 72px);
+    height: calc(100vh - 72px);
+    position: relative;
 }
 
 .splash-image-container {
@@ -15,4 +17,35 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+#splash-text {
+    position: absolute;
+    bottom: 20%;
+    z-index: 2;
+    margin-right: 4%;
+    margin-left: 4%;
+    white-space: pre-line!important;
+    color: white
+}
+
+#splash-text > h1 {
+    color: #FFFFFF;
+    font-family: "Mont Bold", Mont, sans-serif;
+    font-weight: 900;
+    line-height: 1;
+    margin: 0;
+    font-size: calc(66px  +  84  * ((100vw -  320px ) / 1600 ));
+}
+
+#splash-text > h3 {
+    color: #FFFFFF;
+    font-weight: 300;
+    margin-bottom: 4rem;
+    line-height: 0;
+    font-size: calc(21px  +  12  * ((100vw -  320px ) / 1600 ));
+}
+
+#splash-text > h3 > span {
+    font-weight: bold;
 }
