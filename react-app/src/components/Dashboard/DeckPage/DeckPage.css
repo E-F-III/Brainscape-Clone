@@ -68,7 +68,7 @@
     font-size: 24px;
     font-weight: 700;
     margin-right: 24px;
-    max-width: calc(100vw - 336px - 16vw - 100px);
+    max-width: calc(100vw - 336px - 16vw - 150px);
     overflow: hidden;
     padding: 9px 0;
     text-overflow: ellipsis;
