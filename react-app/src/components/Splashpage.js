@@ -51,7 +51,7 @@ function Splashpage() {
 
             <div id='splash-text'>
                 <h1>Rise to your challenge.</h1>
-                <h3>Flaskcards for <span>serious learners</span></h3>
+                <h3>Flashcards for <span>serious learners</span></h3>
             </div>
         </div>
     )
