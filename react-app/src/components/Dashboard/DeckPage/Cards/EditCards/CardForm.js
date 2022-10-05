@@ -12,17 +12,30 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
     const [question, setQuestion] = useState(edit ? card.question : '')
     const [answer, setAnswer] = useState(edit ? card.answer : '')
 
-    const [validationErrors, setValidationErrors] = useState([])
+    const [validationErrors, setValidationErrors] = useState({})
     const [isSubmitted, setIsSubmitted] = useState(false)
 
     const [activeCard, setActiveCard] = useState(false)
+
+    useEffect(() => {
+        const newValidationErrors = {}
+
+        if (question.length === 0) newValidationErrors.question = "Please provide a question"
+        if (question.length > 500) newValidationErrors.question = "Question must not exceed 500 characters"
+
+        if (answer.length === 0) newValidationErrors.answer = "Please provide a answer"
+        if (answer.length > 500) newValidationErrors.answer = "Answer must not exceed 500 characters"
+
+        setValidationErrors(newValidationErrors)
+    }, [question, answer])
 
     const handleCreate = async e => {
         e.preventDefault()
 
         setIsSubmitted(true)
 
-        if (validationErrors.length > 0) return
+        if (Object.values(validationErrors).length > 0) return
+        // if (validationErrors.length > 0) return
 
         const cardData = { question, answer }
         const payload = { deckId, cardData }
@@ -45,7 +58,8 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
 
         setIsSubmitted(true)
 
-        if (validationErrors.length > 0) return
+        if (Object.values(validationErrors).length > 0) return
+        // if (validationErrors.length > 0) return
 
         const cardData = { question, answer }
         const payload = { cardId: card.id, cardData }
@@ -61,15 +75,6 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
         const data = await dispatch(deleteCardThunk(payload))
     }
 
-    useEffect(() => {
-        const newErrors = []
-
-        // validation errors go here
-
-        setValidationErrors(newErrors)
-
-    }, [question, answer])
-
     return (
         <div className={"edit-card-card"}>
             <div className="edit-card-card-header">
@@ -82,6 +87,7 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
                             <div className="card-card-contents">
                                 <div className="card-card-content-header">
                                     <div className="card-card-indicator">Q</div>
+                                    <div className="errors">{isSubmitted ? validationErrors.question : ''}</div>
                                     {/* Bonus feature : Advanced Cards
                                     <div></div> */}
                                 </div>
@@ -113,6 +119,7 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
                             <div className="card-card-contents">
                                 <div className="card-card-content-header">
                                     <div className="card-card-indicator">A</div>
+                                    <div className="errors">{isSubmitted ? validationErrors.answer : ''}</div>
                                     {/* Bonus feature : Advanced Cards
                                     <div></div> */}
                                 </div>
