@@ -14,6 +14,7 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
 
     const [validationErrors, setValidationErrors] = useState({})
     const [isSubmitted, setIsSubmitted] = useState(false)
+    const [unsavedErrors, setUnsavedErrors] = useState({})
 
     const [activeCard, setActiveCard] = useState(false)
 
@@ -28,6 +29,14 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
 
         setValidationErrors(newValidationErrors)
     }, [question, answer])
+
+    useEffect(() => {
+        const notSaved = {}
+        if (!activeCard && question != (edit ? card.question : '')) notSaved.unsavedQuestion = "You have unsaved changes."
+        if (!activeCard && answer != (edit ? card.answer: '')) notSaved.unsavedAnswer = "You have unsaved changes."
+
+        setUnsavedErrors(notSaved)
+    }, [activeCard])
 
     const handleCreate = async e => {
         e.preventDefault()
@@ -87,7 +96,7 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
                             <div className="card-card-contents">
                                 <div className="card-card-content-header">
                                     <div className="card-card-indicator">Q</div>
-                                    <div className="errors">{isSubmitted ? validationErrors.question : ''}</div>
+                                    <div className="errors">{isSubmitted ? validationErrors.question : !activeCard ? unsavedErrors.unsavedQuestion : ''}</div>
                                     {/* Bonus feature : Advanced Cards
                                     <div></div> */}
                                 </div>
@@ -119,7 +128,7 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
                             <div className="card-card-contents">
                                 <div className="card-card-content-header">
                                     <div className="card-card-indicator">A</div>
-                                    <div className="errors">{isSubmitted ? validationErrors.answer : ''}</div>
+                                    <div className="errors">{isSubmitted ? validationErrors.answer : !activeCard ? unsavedErrors.unsavedAnswer : ''}</div>
                                     {/* Bonus feature : Advanced Cards
                                     <div></div> */}
                                 </div>
@@ -146,7 +155,7 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
                     </div>
                 </div>
             </div>
-            <div className="edit-card-card-footer">
+            <div className="edit-card-card-footer" style={{visibility: activeCard ? "visible" : !activeCard && (unsavedErrors.unsavedAnswer || validationErrors.unsavedQuestion) ? "visible" : "hidden"}}>
                 <div onClick={edit ? handleSave : handleCreate} className="general-edit-buttons">
                     <ion-icon name="save"></ion-icon>
                 </div>
