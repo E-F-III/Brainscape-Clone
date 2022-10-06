@@ -6,6 +6,10 @@ def seed_classes_default():
         owner_id=1
     )
 
+    # demo_class_ = Class(
+    #     title=''
+    # )
+
     db.session.add(demo_class)
     db.session.commit()
 
