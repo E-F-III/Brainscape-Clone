@@ -22,9 +22,12 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
 
         if (question.length === 0) newValidationErrors.question = "Please provide a question"
         if (question.length > 500) newValidationErrors.question = "Question must not exceed 500 characters"
+        if (question != card.question) newValidationErrors.unsavedQuestion = "You have unsaved progress."
 
         if (answer.length === 0) newValidationErrors.answer = "Please provide a answer"
         if (answer.length > 500) newValidationErrors.answer = "Answer must not exceed 500 characters"
+        if (answer != card.answer) newValidationErrors.unsavedAnswer = "You have unsaved progress."
+
 
         setValidationErrors(newValidationErrors)
     }, [question, answer])
@@ -87,7 +90,7 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
                             <div className="card-card-contents">
                                 <div className="card-card-content-header">
                                     <div className="card-card-indicator">Q</div>
-                                    <div className="errors">{isSubmitted ? validationErrors.question : ''}</div>
+                                    <div className="errors">{isSubmitted ? validationErrors.question : !activeCard ? validationErrors.unsavedQuestion : ''}</div>
                                     {/* Bonus feature : Advanced Cards
                                     <div></div> */}
                                 </div>
@@ -119,7 +122,7 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
                             <div className="card-card-contents">
                                 <div className="card-card-content-header">
                                     <div className="card-card-indicator">A</div>
-                                    <div className="errors">{isSubmitted ? validationErrors.answer : ''}</div>
+                                    <div className="errors">{isSubmitted ? validationErrors.answer : !activeCard ? validationErrors.unsavedAnswer : ''}</div>
                                     {/* Bonus feature : Advanced Cards
                                     <div></div> */}
                                 </div>
@@ -146,7 +149,7 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
                     </div>
                 </div>
             </div>
-            <div className="edit-card-card-footer">
+            <div className="edit-card-card-footer" style={{visibility: activeCard ? "visible" : !activeCard && (validationErrors.unsavedAnswer || validationErrors.unsavedQuestion) ? "visible" : "hidden"}}>
                 <div onClick={edit ? handleSave : handleCreate} className="general-edit-buttons">
                     <ion-icon name="save"></ion-icon>
                 </div>
