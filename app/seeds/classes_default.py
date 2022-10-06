@@ -5,12 +5,19 @@ def seed_classes_default():
         title='Demo Class',
         owner_id=1
     )
+    demo_class_code = Class(
+        title='Code',
+        owner_id=1
+    )
+    demo_class_med = Class(
+        title='Medical',
+        owner_id=1
+    )
 
-    # demo_class_ = Class(
-    #     title=''
-    # )
 
     db.session.add(demo_class)
+    db.session.add(demo_class_code)
+    db.session.add(demo_class_med)
     db.session.commit()
 
 def undo_classes_default():

@@ -95,3 +95,7 @@
 .carousel.carousel-slider {
     min-height: 100%;
 }
+
+.carousel .slider.animated {
+    min-height: calc(100vh - 72px) !important;
+}
