@@ -85,7 +85,7 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
     }
 
     return (
-        <div className={"edit-card-card"}>
+        <div className={"edit-card-card"} onClick={() => setActiveCard(true)}>
             <div className="edit-card-card-header">
                 <div className="edit-card-card-number">{edit ? idx + 1 : "New Card"}</div>
             </div>
@@ -155,7 +155,8 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
                     </div>
                 </div>
             </div>
-            <div className="edit-card-card-footer" style={{visibility: activeCard ? "visible" : !activeCard && (unsavedErrors.unsavedAnswer || validationErrors.unsavedQuestion) ? "visible" : "hidden"}}>
+            {/* <div className="edit-card-card-footer" style={{visibility: activeCard ? "visible" : !activeCard && (unsavedErrors.unsavedAnswer || validationErrors.unsavedQuestion) ? "visible" : "hidden"}}> */}
+            <div className="edit-card-card-footer">
                 <div onClick={edit ? handleSave : handleCreate} className="general-edit-buttons">
                     <ion-icon name="save"></ion-icon>
                 </div>
