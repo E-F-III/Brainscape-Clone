@@ -39,7 +39,9 @@ function BrowseDeck({ deckId, classId }) {
         <>
             <div id='browse-deck-container'>
                 <div id='browse-card-table'>
-                    <div id='card-gutter-left'>
+                    <div id='card-gutter-left'
+                    onClick={handlePrev}
+                    style={{ visibility: currCard > 0 ? "visible" : "hidden" }}>
                         <div class='browse-card-button-container'
                             style={{ visibility: currCard > 0 ? "visible" : "hidden" }}
                             onClick={handlePrev}>
@@ -70,10 +72,12 @@ function BrowseDeck({ deckId, classId }) {
                         </div>
                         <div onClick={() => setSideA(!sideA)} id='browse-card-button'>{sideA ? "Reveal Answer" : "Show Question"}</div>
                     </div>
-                    <div id='card-gutter-right'>
+                    <div id='card-gutter-right'
+                        onClick={handleNext}
+                        style={{ visibility: currCard + 1 < cardList.length ? "visible" : "hidden" }}>
                         <div class='browse-card-button-container'
-                        style={{ visibility: currCard + 1 < cardList.length ? "visible" : "hidden" }}
-                        onClick={handleNext}>
+                            style={{ visibility: currCard + 1 < cardList.length ? "visible" : "hidden" }}
+                            onClick={handleNext}>
                             <ion-icon size="large" name="caret-forward-outline"></ion-icon>
                         </div>
                     </div>

@@ -4,7 +4,7 @@
     flex-direction: column;
     position: relative;
 
-    height: calc(100vh - 114px);
+    height: calc(100vh - 116px);
     /* z-index: 1; */
     overflow-y: auto;
 }
@@ -12,7 +12,7 @@
 #preview-cards-table {
     background-color: #fbfbfb;
     padding: 0;
-    height: calc(100vh - 114px);
+    height: calc(100vh - 116px);
     /* z-index: 1; */
     overflow-y: auto;
 }
