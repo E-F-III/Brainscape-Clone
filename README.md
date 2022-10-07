@@ -25,6 +25,39 @@ Leitner-scape is a clone of the webapp "BrainScape" known for allowing students 
 * [Wireframes](https://github.com/E-F-III/Brainscape-Clone/wiki/Wireframes)
 ***
 
+## Pages
+### Splashpage
+On the splashpage, a user can find about links to the project repo, and socials of the dev
+At the top, a user can find a navbar where they can either sign up or log in
+![image](https://user-images.githubusercontent.com/75222415/194492361-43ca4038-dd24-47b0-9c29-1df03a36d806.png)
+
+### Sidebar
+On a user's dashboard, one can find a sidebar where they can see their classes
+As of 10/06/22, a user cannot create/edit/delete a class, however on signup, they are given a class to add decks onto
+![image](https://user-images.githubusercontent.com/75222415/194492503-fb44a3a4-e3df-4ba3-b587-5aa5309f6c2d.png)
+
+### Class page
+On the class page, a user can find the decks that they have created for their classes.
+A user may also create additional decks on this page
+![image](https://user-images.githubusercontent.com/75222415/194492586-91b8ab20-0088-445c-9008-fce58cf0897a.png)
+
+### Deck page
+
+#### Preview Cards
+A user can view cards assigned to a specific deck
+![image](https://user-images.githubusercontent.com/75222415/194492780-b44118ec-3f76-48e3-bb02-8d5b9327ffe8.png)
+
+#### Edit Cards
+A user can create/edit/delete cards assigned to a specific deck
+![image](https://user-images.githubusercontent.com/75222415/194493003-cb5cd4ee-4ade-4ff1-946d-ed027e350ade.png)
+
+### Browse Deck
+A user can browse through a deck, where they can see a card's question. 
+Upon clicking the button below, they can 'flip' the card to reveal the answer.
+Along the sides of this page, a user can switch between cards by clicking on the arrow buttons
+![image](https://user-images.githubusercontent.com/75222415/194493112-60ebfb60-78ef-4f63-b92d-b0df866440ed.png)
+
+
 ## How to run Leitner-scape Locally:
 ## Run Locally
 - Clone the repository
