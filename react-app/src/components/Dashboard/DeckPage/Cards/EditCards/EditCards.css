@@ -123,7 +123,7 @@
 }
 
 .edit-card-card-active {
-    width: calc(100vw - 90px - 200px - 144px - 50px);
+    width: calc(100vw - 90px - 200px - 144px - 70px);
     /* width: calc(100vw - 90px - 200px - 144px - 250px); */
     flex-direction: row;
     margin: 15px 0;

@@ -12,6 +12,10 @@
     width: 123px;
 }
 
+#login-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
 #signin-header {
     color: #324A6B;
     font-family: "Mont Bold", Mont, sans-serif;
