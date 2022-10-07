@@ -19,12 +19,20 @@
     display: flex;
 }
 
+#card-gutter-left:hover{
+  background-color: rgba(25, 112, 150, 0.05);
+}
+
 #card-gutter-right {
     align-items: center;
     display: flex-end;
     justify-content: center;
     width: 36px;
     display: flex;
+}
+
+#card-gutter-right:hover {
+  background-color: rgba(25, 112, 150, 0.05);
 }
 
 .browse-card-button-container {
@@ -39,6 +47,11 @@
     display: flex;
     justify-content: center;
     position: relative;
+}
+
+.browse-card-button-container:hover {
+    background-color: rgba(25, 112, 150, 0.1);
+
 }
 
 #browse-card-container {
