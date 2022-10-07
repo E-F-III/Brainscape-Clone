@@ -27,11 +27,13 @@ const SignUpForm = () => {
     const newErrors = []
 
     // Validation Errors go here
+    if (/[^a-zA-Z]/.test(firstName)) newErrors.push('First Name must contain alpha characters only')
+    if (/[^a-zA-Z]/.test(lastName)) newErrors.push('Last Name must contain alpha characters only')
+    // if (/[^a-zA-Z \-]/.test(firstName)) newErrors.push('First Name must contain alpha characters only (hyphens \'-\' and spaces \' \' are allowed)')
+    // if (/[^a-zA-Z \-]/.test(lastName)) newErrors.push('Last Name must contain alpha characters only (hyphens \'-\' and spaces \' \' are allowed)')
+    // if (!firstName) newErrors.push('Please provide a first name')
+    // if (!lastName) newErrors.push('Please provide a last name')
     if (password != repeatPassword) newErrors.push('Passwords do not match')
-    // if () newErrors.push('First Name must contain alpha characters only')
-    // if () newErrors.push('Last Name must contain alpha characters only')
-    if (/[^a-zA-Z \-]/.test(firstName)) newErrors.push('First Name must contain alpha characters only')
-    if (/[^a-zA-Z \-]/.test(lastName)) newErrors.push('Last Name must contain alpha characters only')
 
     setValidationErrors(newErrors)
 
@@ -41,6 +43,8 @@ const SignUpForm = () => {
     e.preventDefault();
 
     setIsSubmitted(true)
+
+    if (validationErrors.length) return
 
     if (password === repeatPassword) {
       const data = await dispatch(signUp(firstName, lastName, email, password));
