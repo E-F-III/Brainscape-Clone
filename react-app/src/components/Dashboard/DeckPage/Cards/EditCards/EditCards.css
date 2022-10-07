@@ -296,7 +296,8 @@
 .edit-card-card-footer {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    justify-content: center;
     height: 100%;
     /* opacity: 0; */
     padding: 36px 9px;
