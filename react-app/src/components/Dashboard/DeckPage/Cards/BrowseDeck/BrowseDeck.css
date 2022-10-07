@@ -4,6 +4,7 @@
     flex-direction: column;
     padding: 27px 30px;
     position: relative;
+    height: calc(100vh - 116px);
 }
 
 #browse-card-table {
