@@ -33,7 +33,7 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
     useEffect(() => {
         const notSaved = {}
         if (!activeCard && question != (edit ? card.question : '')) notSaved.unsavedQuestion = "You have unsaved changes."
-        if (!activeCard && answer != (edit ? card.answer: '')) notSaved.unsavedAnswer = "You have unsaved changes."
+        if (!activeCard && answer != (edit ? card.answer : '')) notSaved.unsavedAnswer = "You have unsaved changes."
 
         setUnsavedErrors(notSaved)
     }, [activeCard])
@@ -74,6 +74,7 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
         const payload = { cardId: card.id, cardData }
 
         const data = await dispatch(updateCardThunk(payload))
+        setActiveCard(false)
     }
 
     const handleDelete = async e => {
@@ -85,7 +86,7 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
     }
 
     return (
-        <div className={"edit-card-card"} onClick={() => setActiveCard(true)}>
+        <div className={"edit-card-card"}>
             <div className="edit-card-card-header">
                 <div className="edit-card-card-number">{edit ? idx + 1 : "New Card"}</div>
             </div>
@@ -96,11 +97,14 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
                             <div className="card-card-contents">
                                 <div className="card-card-content-header">
                                     <div className="card-card-indicator">Q</div>
-                                    <div className="errors">{isSubmitted ? validationErrors.question : !activeCard ? unsavedErrors.unsavedQuestion : ''}</div>
+                                    {/* <div className="errors">{isSubmitted ? validationErrors.question : !activeCard ? unsavedErrors.unsavedQuestion : ''}</div> */}
                                     {/* Bonus feature : Advanced Cards
                                     <div></div> */}
                                 </div>
                                 <div className="card-card-content-main">
+                                    <div className="errors">{isSubmitted ? validationErrors.question : !activeCard ? unsavedErrors.unsavedQuestion : ''}</div>
+                                    {/* Bonus feature : Advanced Cards
+                                             <div></div> */}
                                     <div className="card-card-field-container">
                                         <div className="card-card-field">
                                             <div className="card-card-input">
@@ -128,12 +132,16 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
                             <div className="card-card-contents">
                                 <div className="card-card-content-header">
                                     <div className="card-card-indicator">A</div>
-                                    <div className="errors">{isSubmitted ? validationErrors.answer : !activeCard ? unsavedErrors.unsavedAnswer : ''}</div>
+                                    {/* <div className="errors">{isSubmitted ? validationErrors.answer : !activeCard ? unsavedErrors.unsavedAnswer : ''}</div> */}
                                     {/* Bonus feature : Advanced Cards
                                     <div></div> */}
                                 </div>
                                 <div className="card-card-content-main">
+                                    <div className="errors">{isSubmitted ? validationErrors.question : !activeCard ? unsavedErrors.unsavedQuestion : ''}</div>
+                                    {/* Bonus feature : Advanced Cards
+                                        <div></div> */}
                                     <div className="card-card-field-container">
+
                                         <div className="card-card-field">
                                             <div className="card-card-input">
                                                 <TextareaAutosize

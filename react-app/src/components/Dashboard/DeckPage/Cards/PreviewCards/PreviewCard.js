@@ -4,7 +4,6 @@ import './PreviewCards.css'
 
 function PreviewCard({ card, idx }) {
     return (
-        <div>
             <div className="card-row">
                 <div className="card-header">{idx + 1}</div>
                 <div className="card">
@@ -39,7 +38,6 @@ function PreviewCard({ card, idx }) {
                 </div>
                 <div></div>
             </div>
-        </div>
     )
 }
 
