@@ -18,7 +18,7 @@
     flex-direction: column;
     align-items: center;
     grid-row-gap: 1.3rem;
-    max-height: calc(80vh - 60px);
+    /* max-height: calc(80vh - 60px); */
     max-width: calc(80vw - 60px);
     overflow: auto;
     width: 100%;

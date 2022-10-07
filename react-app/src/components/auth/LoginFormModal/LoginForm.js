@@ -10,6 +10,7 @@ const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
@@ -17,7 +18,15 @@ const LoginForm = () => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+      // const newErrors = []
+
+      // for (const error of data) {
+      //   newErrors.push(error.split(': ')[1])
+      // }
+
+      // setErrors(newErrors)
+
+      setErrors(['Email or Password is incorrect'])
       return
     }
 
