@@ -209,4 +209,5 @@
     text-align: center;
     margin: inherit;
     margin-bottom: 12px;
+    max-width: 100%;
 }
