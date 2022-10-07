@@ -20,11 +20,17 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
 
   const [validationErrors, setValidationErrors] = useState([])
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   useEffect(() => {
     const newErrors = []
 
     // Validation Errors go here
+    if (password != repeatPassword) newErrors.push('Passwords do not match')
+    // if () newErrors.push('First Name must contain alpha characters only')
+    // if () newErrors.push('Last Name must contain alpha characters only')
+    if (/[^a-zA-Z \-]/.test(firstName)) newErrors.push('First Name must contain alpha characters only')
+    if (/[^a-zA-Z \-]/.test(lastName)) newErrors.push('Last Name must contain alpha characters only')
 
     setValidationErrors(newErrors)
 
@@ -32,14 +38,24 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
+
+    setIsSubmitted(true)
+
     if (password === repeatPassword) {
       const data = await dispatch(signUp(firstName, lastName, email, password));
       if (data) {
-        setErrors(data)
+        const newErrors = []
+
+        for (const error of data) {
+          newErrors.push(error.split(': ')[1])
+        }
+
+        setErrors(newErrors)
+        return
       }
 
       const data2 = await dispatch(createDemoClassThunk())
-
+      setIsSubmitted(false)
       history.push('/dashboard')
     }
   };
@@ -71,13 +87,15 @@ const SignUpForm = () => {
   return (
     <>
       <div id='signup-header'>Get Started</div>
-      <form onSubmit={onSignUp}>
-        <div className='errors'>
+      <div className='errors'>
+          {isSubmitted && validationErrors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>
-
+      <form onSubmit={onSignUp}>
         <div className='input-container'>
           <input
             type='text'
@@ -87,6 +105,7 @@ const SignUpForm = () => {
             value={firstName}
             className='text-input'
             required={true}
+            // pattern="[a-zA-Z ]+"
           ></input>
           <label>First Name</label>
         </div>
@@ -113,6 +132,7 @@ const SignUpForm = () => {
             value={email}
             className='text-input'
             required={true}
+            // pattern="[a-zA-Z ]+"
           ></input>
           <label>Email</label>
         </div>
