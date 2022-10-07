@@ -11,3 +11,7 @@
     background-color: white;
     width: 123px;
 }
+
+#logout-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}

@@ -137,7 +137,7 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
                                     <div></div> */}
                                 </div>
                                 <div className="card-card-content-main">
-                                    <div className="errors">{isSubmitted ? validationErrors.answer : !activeCard ? unsavedErrors.unsavedQuestion : ''}</div>
+                                    <div className="errors">{isSubmitted ? validationErrors.answer : !activeCard ? unsavedErrors.unsavedAnswer : ''}</div>
                                     {/* Bonus feature : Advanced Cards
                                         <div></div> */}
                                     <div className="card-card-field-container">
