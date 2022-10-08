@@ -41,7 +41,10 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
     const handleCreate = async e => {
         e.preventDefault()
 
+        if (e.button !== 0) return; // for on mousedown. Checks for only left clicks
+
         setIsSubmitted(true)
+        // setUnsavedErrors({})
 
         if (Object.values(validationErrors).length > 0) return
         // if (validationErrors.length > 0) return
@@ -65,7 +68,10 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
     const handleSave = async e => {
         e.preventDefault()
 
+        if (e.button !== 0) return; // for on mousedown. Checks for only left clicks
+
         setIsSubmitted(true)
+        // setUnsavedErrors({})
 
         if (Object.values(validationErrors).length > 0) return
         // if (validationErrors.length > 0) return
@@ -165,9 +171,11 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
             </div>
             {/* <div className="edit-card-card-footer" style={{visibility: activeCard ? "visible" : !activeCard && (unsavedErrors.unsavedAnswer || validationErrors.unsavedQuestion) ? "visible" : "hidden"}}> */}
             <div className="edit-card-card-footer">
-                <div onClick={edit ? handleSave : handleCreate} className="general-edit-buttons">
+                {/* <div onClick={edit ? handleSave : handleCreate} className="general-edit-buttons"> */}
+                <div onMouseDown={edit ? handleSave : handleCreate} className="general-edit-buttons">
                     <ion-icon name="save"></ion-icon>
                 </div>
+                {/* <div onMouseDown={edit ? handleDelete : handleCancel} className="general-edit-buttons"> */}
                 <div onClick={edit ? handleDelete : handleCancel} className="general-edit-buttons">
                     <ion-icon name="trash"></ion-icon>
                 </div>

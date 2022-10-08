@@ -94,6 +94,11 @@
     padding: 0;
 }
 
+#create-card-body:hover #create-card-prompt {
+    color: orange;
+    font-size: 20px;
+}
+
 #create-card-prompt {
     color: rgba(0, 0, 0, 0.35);
     cursor: pointer;
@@ -281,6 +286,7 @@
     font-weight: 400;
     padding: 9px 0;
     resize: none;
+    overflow: hidden;
 }
 
 #card-card-textarea-active {
@@ -291,6 +297,7 @@
     font-weight: 400;
     padding: 9px 0;
     resize: none;
+    overflow: hidden;
 }
 
 .edit-card-card-footer {
