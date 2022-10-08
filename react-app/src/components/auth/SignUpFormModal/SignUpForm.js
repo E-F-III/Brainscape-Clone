@@ -29,6 +29,8 @@ const SignUpForm = () => {
     // Validation Errors go here
     if (/[^a-zA-Z]/.test(firstName)) newErrors.push('First Name must contain alpha characters only')
     if (/[^a-zA-Z]/.test(lastName)) newErrors.push('Last Name must contain alpha characters only')
+    if (firstName.length > 15) newErrors.push('First name cannot be longer than 15 characters')
+    if (lastName.length > 15) newErrors.push('Last name cannot be longer than 15 characters')
     // if (/[^a-zA-Z \-]/.test(firstName)) newErrors.push('First Name must contain alpha characters only (hyphens \'-\' and spaces \' \' are allowed)')
     // if (/[^a-zA-Z \-]/.test(lastName)) newErrors.push('Last Name must contain alpha characters only (hyphens \'-\' and spaces \' \' are allowed)')
     // if (!firstName) newErrors.push('Please provide a first name')

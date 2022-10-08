@@ -286,6 +286,7 @@
     font-weight: 400;
     padding: 9px 0;
     resize: none;
+    overflow: hidden;
 }
 
 #card-card-textarea-active {
@@ -296,6 +297,7 @@
     font-weight: 400;
     padding: 9px 0;
     resize: none;
+    overflow: hidden;
 }
 
 .edit-card-card-footer {
