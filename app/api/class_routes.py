@@ -120,4 +120,15 @@ def update_class(id):
 @class_routes.route('/<int:id>', methods=["DELETE"])
 @login_required
 def delete_class(id):
-    pass
+    single_class = Class.query.get(id)
+
+    if not single_class:
+        return {"message": "Class could not be found", "statusCode": 404}, 404
+
+    if single_class.owner_id != current_user.id:
+        return {"message": "Forbidden", "statusCode": 403}, 403
+
+    db.session.delete(single_class)
+    db.session.commit()
+
+    return { "message": "Successfully deleted", "statusCode": 200 }, 200
