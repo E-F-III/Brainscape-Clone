@@ -84,6 +84,24 @@ export const getUserClassesThunk = () => async dispatch => {
     return data
 }
 
+export const createClassThunk = payload => async dispatch => {
+    const response = await fetch(
+        '/api/classes',
+        {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        }
+    )
+    const data = await response.json()
+
+    if (response.ok) {
+        await dispatch(createDemoClassAction(data))
+    }
+
+    return data
+}
+
 // Reducer
 
 const initialState = {}
