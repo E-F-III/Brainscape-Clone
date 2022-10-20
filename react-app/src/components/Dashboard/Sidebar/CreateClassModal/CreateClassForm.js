@@ -40,6 +40,8 @@ const ClassForm = ({ setShowModal }) => {
 
         setIsSubmitted(false)
         setShowModal(false)
+
+        history.push(`/dashboard/${data.id}/about`)
     }
 
     return (
@@ -70,3 +72,5 @@ const ClassForm = ({ setShowModal }) => {
         </>
     )
 }
+
+export default ClassForm
