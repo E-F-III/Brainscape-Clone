@@ -102,6 +102,19 @@ const classReducer = (state = initialState, action) => {
             newState[action.payload.id] = action.payload
             return newState
         }
+        case CREATE_CLASS: {
+            newState[action.payload.id] = action.payload
+            return newState
+        }
+        case UPDATE_CLASS: {
+            newState[action.payload.id] = {...newState[action.payload.id], ...action.payload}
+            return newState
+        }
+        case DELETE_CLASS: {
+            newState = { ...state };
+            delete newState[action.payload]
+            return newState
+        }
         case CLEAR_CLASSES: {
             newState = {}
             return newState
