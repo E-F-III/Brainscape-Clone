@@ -4,6 +4,10 @@ const CREATE_DEMO_CLASS = "class/create-demo-class"
 
 const GET_USER_CLASSES = "class/get-user-classes"
 
+const CREATE_CLASS = "class/create-class"
+const UPDATE_CLASS = "class/update-class"
+const DELETE_CLASS = "class/delete-class"
+
 const CLEAR_CLASSES = "class/clear-classes"
 
 // Action Creators
@@ -18,6 +22,27 @@ const createDemoClassAction = payload => {
 const getUserClassesAction = payload => {
     return {
         type: GET_USER_CLASSES,
+        payload
+    }
+}
+
+const createClassAction = payload => {
+    return {
+        type: CREATE_CLASS,
+        payload
+    }
+}
+
+const updateClassAction = payload => {
+    return {
+        type: UPDATE_CLASS,
+        payload
+    }
+}
+
+const deleteClassAction = payload => {
+    return {
+        type: DELETE_CLASS,
         payload
     }
 }
