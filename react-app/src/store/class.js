@@ -102,7 +102,7 @@ export const createClassThunk = payload => async dispatch => {
     return data
 }
 
-export const updateDeckThunk = payload => async dispatch => {
+export const updateClassThunk = payload => async dispatch => {
     const response = await fetch(
         `/api/classes/${payload.classId}`,
         {
@@ -115,6 +115,22 @@ export const updateDeckThunk = payload => async dispatch => {
 
     if (response.ok) {
         await dispatch(updateClassAction(data))
+    }
+
+    return data
+}
+
+export const deleteClassThunk = payload => async dispatch => {
+    const response = await fetch(
+        `/api/classes/${payload.classId}`,
+        {
+            method: "DELETE"
+        }
+    )
+    const data = await response.json()
+
+    if (response.ok) {
+        await dispatch(deleteClassAction(payload.classId))
     }
 
     return data
