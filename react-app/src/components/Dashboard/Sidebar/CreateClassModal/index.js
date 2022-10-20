@@ -10,7 +10,7 @@ function ClassFormModal() {
 
     return (
         <>
-            <div id="create-deck-button-container" onClick={() => setShowModal(true)}>
+            <div id="create-class-button-container" onClick={() => setShowModal(true)}>
                 <ion-icon size="large" name="add-outline" />
             </div>
             {showModal && (
@@ -22,4 +22,4 @@ function ClassFormModal() {
     )
 }
 
-export default ClassFormModal
+export default ClassFormModal;

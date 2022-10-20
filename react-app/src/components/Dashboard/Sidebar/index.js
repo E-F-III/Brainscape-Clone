@@ -4,6 +4,8 @@ import { NavLink, useHistory } from "react-router-dom";
 
 import { logout } from '../../../store/session'
 
+import ClassFormModal from "./CreateClassModal";
+
 import whiteLogo from '../../../assets/white-logo.png'
 
 import './Sidebar.css'
@@ -44,10 +46,11 @@ function Sidebar() {
             <div id="sidebar-header-bottom">
                 <h4 id="classes-heading">My classes ({classList.length})</h4>
                 {/* feature 3: classes and feature 4: search classes */}
-                {/* <div id="classes-buttons">
-                        <div id="create-class"></div>
+                <div id="classes-buttons">
+                        {/* <div id="create-class"></div> */}
+                        <ClassFormModal />
                         <div id="search-classes"></div>
-                    </div> */}
+                    </div>
             </div>
             <div id="sidebar-body">
                 {

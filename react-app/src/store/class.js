@@ -90,7 +90,7 @@ export const createClassThunk = payload => async dispatch => {
         {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(payload.newClass)
         }
     )
     const data = await response.json()

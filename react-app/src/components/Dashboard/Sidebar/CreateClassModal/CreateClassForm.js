@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useHistory } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { createClassThunk } from '../../../../store/class';
 
@@ -15,7 +16,7 @@ const ClassForm = ({ setShowModal }) => {
 
     useEffect(() => {
         const newValidationErrors = []
-
+        console.log(title)
         if (title.length === 0) newValidationErrors.push('Please provide a title')
         if (title.length > 50) newValidationErrors.push('Title must not exceed 50 characters')
 
