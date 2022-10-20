@@ -96,7 +96,25 @@ export const createClassThunk = payload => async dispatch => {
     const data = await response.json()
 
     if (response.ok) {
-        await dispatch(createDemoClassAction(data))
+        await dispatch(createClassAction(data))
+    }
+
+    return data
+}
+
+export const updateDeckThunk = payload => async dispatch => {
+    const response = await fetch(
+        `/api/classes/${payload.classId}`,
+        {
+            method: "PUT",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload.classData)
+        }
+    )
+    const data = await response.json()
+
+    if (response.ok) {
+        await dispatch(updateClassAction(data))
     }
 
     return data
