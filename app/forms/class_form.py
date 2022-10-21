@@ -23,5 +23,5 @@ def description_length(form, field):
 
 class ClassForm(FlaskForm):
     title = StringField('title', validators=[DataRequired(), title_length])
-    title = StringField('headline', validators=[headline_length])
+    headline = StringField('headline', validators=[headline_length])
     description = StringField('description', validators=[description_length])

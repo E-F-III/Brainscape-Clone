@@ -5,6 +5,7 @@ import { NavLink, Redirect, Route, Switch, useLocation, useParams } from "react-
 import { getClassDecksThunk } from "../../../store/deck";
 
 import DecksSection from "./ClassDecksSection";
+import AboutSection from "./ClassAboutSection";
 
 import './ClassPage.css'
 
@@ -77,9 +78,11 @@ function ClassPage() {
             </div>
             <Switch>
                 {/* Feature 3 Classes */}
-                <Route path={`/dashboard/:classId/about`}></Route>
+                <Route path={`/dashboard/:classId/about`}>
+                    <AboutSection />
+                </Route>
                 <Route path={`/dashboard/:classId/decks`}>
-                    <DecksSection classId={classId} />
+                    <DecksSection />
                 </Route>
             </Switch>
         </div>

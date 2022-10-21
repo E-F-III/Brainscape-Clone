@@ -1,14 +1,16 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { NavLink, useHistory, useRouteMatch } from "react-router-dom";
+import { NavLink, useHistory, useParams, useRouteMatch } from "react-router-dom";
 
 import DeckFormModal from "./CreateDeckModal";
 
 import './ClassPage.css'
 
-function DecksSection({ classId }) {
+function DecksSection() {
     const history = useHistory()
+    const { classId } = useParams()
     const { url } = useRouteMatch()
+    console.log(classId)
 
     const decks = useSelector(state => state.decks)
     const deckList = Object.values(decks)

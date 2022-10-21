@@ -61,7 +61,7 @@
     border-bottom: 8px solid rgba(18, 57, 108, 0.1);
 }
 
-.class-tab{
+.class-tab {
     /* border-bottom: 8px solid transparent; */
     color: rgba(70, 80, 94, 0.8);
     font-size: 14px;
@@ -91,10 +91,132 @@
     text-decoration: none;
 }
 
-.class-tab-active > .class-tab{
+.class-tab-active>.class-tab {
     color: #46505e;
     font-weight: bold;
 }
+
+/* about section  */
+#class-about-page {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    /* margin-left: 200px; */
+    padding: 24px 42px;
+    background-color: rgba(255, 139, 71, 0.03);
+}
+
+.class-segment {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    position: relative;
+    width: 100%;
+    transition: all 0.3s ease;
+    margin-bottom: 36px;
+}
+
+.class-segment-header {
+    align-items: center;
+    border-bottom: 1px solid rgba(46, 64, 86, 0.26);
+    display: flex;
+    height: 30px;
+    width: 100%;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    justify-content: space-between;
+}
+
+.class-header-container-left {
+    display: flex;
+    align-items: center;
+}
+
+.class-header-container-right {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    height: 24px;
+    margin-left: auto;
+}
+
+.class-edit-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(124, 130, 142, 0.6);
+    font-size: 16px;
+    margin: 3px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.class-edit-buttons:hover {
+    background-color: rgba(25, 112, 150, 0.1);
+  }
+
+
+.class-segment-heading {
+    color: #29A5DC;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.class-about-header-text {
+    color: black;
+    font-size: 16px;
+}
+
+.class-about-header-text-empty {
+    color: #AAA;
+    font-size: 16px;
+}
+
+.class-simple-text-button {
+    align-items: center;
+    cursor: pointer;
+    color: #7F7F7F;
+    display: grid;
+    height: auto;
+    position: relative;
+    text-align: center;
+    text-decoration: underline;
+    transition: all 0.3s;
+    border-right: 1px solid;
+    margin: 0 0 0 12px;
+    padding: 0 12px;
+    border-left: none;
+    margin-left: 0;
+}
+
+.class-pill-button {
+    align-items: center;
+    border: none;
+    border-radius: 42px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    font-weight: 300;
+    justify-content: center;
+    letter-spacing: 0.12em;
+    outline-style: none;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    background-color: #FF8243;
+    font-size: 12px;
+    height: 24px;
+    margin-left: 12px;
+    margin-right: 0;
+    padding: 0 18px;
+}
+
+/* deck section  */
 
 #deck-list {
     margin: 0;
