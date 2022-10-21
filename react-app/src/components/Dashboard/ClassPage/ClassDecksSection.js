@@ -1,5 +1,5 @@
 import React from "react";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink, useHistory, useRouteMatch } from "react-router-dom";
 
 import DeckFormModal from "./CreateDeckModal";

@@ -56,7 +56,7 @@ function Sidebar() {
             <div id="sidebar-body">
                 {
                     classList.map(singleClass => (
-                        <NavLink to={`/dashboard/${singleClass.id}/decks`} key={singleClass.id} className="class-container" activeClassName="class-container-active">
+                        <NavLink to={`/dashboard/${singleClass.id}`} key={singleClass.id} className="class-container" activeClassName="class-container-active">
                             <div className="class-icon-container">
                                 <img className="class-icon" alt="class-icon" src="https://www.brainscape.com/assets/app_icons/ugs.png" />
                             </div>

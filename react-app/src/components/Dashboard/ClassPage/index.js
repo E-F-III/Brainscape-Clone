@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Route, Switch, useParams } from "react-router-dom";
+import { NavLink, Redirect, Route, Switch, useLocation, useParams } from "react-router-dom";
 
 import { getClassDecksThunk } from "../../../store/deck";
 
@@ -12,6 +12,7 @@ import './ClassPage.css'
 function ClassPage() {
     const dispatch = useDispatch()
     const { classId } = useParams()
+    const { pathname } = useLocation()
 
     const singleClass = useSelector(state => state.classes[Number(classId)])
 
@@ -23,6 +24,10 @@ function ClassPage() {
             setIsLoaded(true);
         })();
     }, [dispatch, classId])
+
+    if (pathname === `/dashboard/${classId}`) {
+        return <Redirect to={`/dashboard/${classId}/about`}/>
+    }
 
     if (isLoaded && !singleClass) {
         return (
@@ -62,9 +67,9 @@ function ClassPage() {
             </div>
             <div id="class-tabs">
                 {/* Feature 3 Classes */}
-                {/* <div className="class-tab-container">
-                    <NavLink className="class-tab" to={`${url}/about`}>About</NavLink>
-                </div> */}
+                <NavLink to={`/dashboard/${classId}/about`} className="class-tab-container" activeClassName="class-tab-active">
+                    <div className="class-tab" >About</div>
+                </NavLink>
                 {/* <NavLink to={`${url}/decks`} className="class-tab-container" activeClassName="class-tab-active"> */}
                 <NavLink to={`/dashboard/${classId}/decks`} className="class-tab-container" activeClassName="class-tab-active">
                     <div className="class-tab">Decks</div>
@@ -72,8 +77,8 @@ function ClassPage() {
             </div>
             <Switch>
                 {/* Feature 3 Classes */}
-                {/* <Route path={`${url}/about`}></Route> */}
-                <Route path={`/dashboard/${classId}/decks`}>
+                <Route path={`/dashboard/:classId/about`}></Route>
+                <Route path={`/dashboard/:classId/decks`}>
                     <DecksSection classId={classId} />
                 </Route>
             </Switch>
