@@ -5,6 +5,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import { logout } from '../../../store/session'
 
 import ClassFormModal from "./CreateClassModal";
+import DeleteClassModal from "./DeleteClassModal";
 
 import whiteLogo from '../../../assets/white-logo.png'
 
@@ -65,7 +66,7 @@ function Sidebar() {
                                 {/* <div className="class-progress"></div> */}
                             </div>
                             {/* feature 3: classes */}
-                            {/* <div className="class-remove-button"></div> */}
+                            <DeleteClassModal classId={singleClass.id} />
                         </NavLink>
                     ))
                 }

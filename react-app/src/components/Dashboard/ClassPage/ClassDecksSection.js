@@ -17,7 +17,7 @@ function DecksSection({ classId }) {
         <div id="deck-list">
             {
                 deckList.map(deck => (
-                    <NavLink to={`${url}/${deck.id}/cards/preview`} className="deck-container">
+                    <NavLink key={deck.id} to={`${url}/${deck.id}/cards/preview`} className="deck-container">
                         {/* Feature 4: Mastery
                         <div></div> */}
                         <div className="deck-info">
