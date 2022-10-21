@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useHistory, useParams, useRouteMatch } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import PreviewCard from "./PreviewCard";
 
@@ -9,7 +9,6 @@ import './PreviewCards.css'
 function PreviewCards({ classId, deckId }) {
     const history = useHistory()
 
-    const deck = useSelector(state => state.decks[Number(deckId)])
     const cards = useSelector(state => state.cards)
     const cardList = Object.values(cards)
 

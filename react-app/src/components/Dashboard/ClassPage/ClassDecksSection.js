@@ -1,31 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useHistory, useParams, useRouteMatch } from "react-router-dom";
-
-import { getClassDecksThunk } from "../../../store/deck";
+import React from "react";
+import {  useSelector } from "react-redux";
+import { NavLink, useHistory, useRouteMatch } from "react-router-dom";
 
 import DeckFormModal from "./CreateDeckModal";
 
 import './ClassPage.css'
 
 function DecksSection({ classId }) {
-    const dispatch = useDispatch()
     const history = useHistory()
     const { url } = useRouteMatch()
 
     const decks = useSelector(state => state.decks)
     const deckList = Object.values(decks)
 
-    const [isLoaded, setIsLoaded] = useState(false)
-
-    useEffect(() => {
-        (async () => {
-            await dispatch(getClassDecksThunk({ classId }));
-            setIsLoaded(true);
-        })();
-    }, [dispatch])
-
-    return isLoaded && (
+    return (
         <div id="deck-list">
             {
                 deckList.map(deck => (

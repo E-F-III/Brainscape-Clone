@@ -32,7 +32,7 @@ function DeckPage() {
             await dispatch(getDeckCardsThunk({ deckId }))
             setIsLoaded(true)
         })()
-    }, [dispatch])
+    }, [dispatch, deckId, classId])
 
     if (isLoaded && !deck) {
         return (
@@ -60,7 +60,7 @@ function DeckPage() {
                                 <ion-icon name="chevron-back-outline" />
                             </div>
                             <div>
-                                <img id="class-icon-button" src="https://www.brainscape.com/assets/app_icons/ugs.png" />
+                                <img id="class-icon-button" alt="class-icon-button" src="https://www.brainscape.com/assets/app_icons/ugs.png" />
                             </div>
                             <div id="class-name">{singleClass.title}</div>
                         </div>

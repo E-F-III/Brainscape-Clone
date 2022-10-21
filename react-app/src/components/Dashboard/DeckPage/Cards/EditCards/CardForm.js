@@ -32,8 +32,8 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
 
     useEffect(() => {
         const notSaved = {}
-        if (!activeCard && question != (edit ? card.question : '')) notSaved.unsavedQuestion = "You have unsaved changes."
-        if (!activeCard && answer != (edit ? card.answer : '')) notSaved.unsavedAnswer = "You have unsaved changes."
+        if (!activeCard && question !== (edit ? card.question : '')) notSaved.unsavedQuestion = "You have unsaved changes."
+        if (!activeCard && answer !== (edit ? card.answer : '')) notSaved.unsavedAnswer = "You have unsaved changes."
 
         setUnsavedErrors(notSaved)
     }, [activeCard])
@@ -52,7 +52,8 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
         const cardData = { question, answer }
         const payload = { deckId, cardData }
 
-        const data = await dispatch(createCardThunk(payload))
+        // const data = await dispatch(createCardThunk(payload))
+        await dispatch(createCardThunk(payload))
 
         setShowCreateCard(false)
     }
@@ -79,7 +80,8 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
         const cardData = { question, answer }
         const payload = { cardId: card.id, cardData }
 
-        const data = await dispatch(updateCardThunk(payload))
+        // const data = await dispatch(updateCardThunk(payload))
+        await dispatch(updateCardThunk(payload))
         setActiveCard(false)
     }
 
@@ -88,7 +90,8 @@ function CardForm({ deckId, card, idx, edit, setShowCreateCard }) {
 
         const payload = { cardId: card.id }
 
-        const data = await dispatch(deleteCardThunk(payload))
+        // const data = await dispatch(deleteCardThunk(payload))
+        await dispatch(deleteCardThunk(payload))
     }
 
     return (

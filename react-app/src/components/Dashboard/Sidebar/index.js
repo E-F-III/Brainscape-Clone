@@ -29,7 +29,7 @@ function Sidebar() {
             <header id="sidebar-header">
                 <div id="sidebar-header-top">
                     <div id="splash-button" onClick={() => history.push('/')}>
-                        <img id="logo" src={whiteLogo} />
+                        <img id="logo" alt="logo" src={whiteLogo} />
                     </div>
                     <div id="sidebar-user-info">
                         <div></div>
@@ -57,7 +57,7 @@ function Sidebar() {
                     classList.map(singleClass => (
                         <NavLink to={`/dashboard/${singleClass.id}/decks`} key={singleClass.id} className="class-container" activeClassName="class-container-active">
                             <div className="class-icon-container">
-                                <img className="class-icon" src="https://www.brainscape.com/assets/app_icons/ugs.png" />
+                                <img className="class-icon" alt="class-icon" src="https://www.brainscape.com/assets/app_icons/ugs.png" />
                             </div>
                             <div className="class-data">
                                 <div className="class-title">{singleClass.title}</div>

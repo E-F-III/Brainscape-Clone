@@ -35,7 +35,8 @@ const DeckForm = ({ classId, setShowModal }) => {
 
         const payload = { deck, classId }
 
-        const data = await dispatch(createDeckThunk(payload));
+        // const data = await dispatch(createDeckThunk(payload));
+        await dispatch(createDeckThunk(payload));
 
         setIsSubmitted(false)
         setShowModal(false)

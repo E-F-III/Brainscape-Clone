@@ -41,7 +41,8 @@ const EditDeckForm = ({ deckId, setShowModal }) => {
 
         const payload = { deckId: deck.id, deckData }
 
-        const data = await dispatch(updateDeckThunk(payload))
+        // const data = await dispatch(updateDeckThunk(payload))
+        await dispatch(updateDeckThunk(payload))
 
         setIsSubmitted(false)
         setShowModal(false)
