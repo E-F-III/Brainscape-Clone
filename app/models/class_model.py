@@ -6,6 +6,7 @@ class Class(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     title = db.Column(db.String(100), nullable=False)
+    headline = db.Column(db.string(280))
     description = db.Column(db.String(5000))
 
     owner = db.relationship("User", back_populates='classes')
@@ -16,5 +17,6 @@ class Class(db.Model):
             'id': self.id,
             'ownerId': self.owner_id,
             'title': self.title,
+            'headline': self.headline,
             'description': self.description
         }

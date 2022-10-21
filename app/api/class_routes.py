@@ -80,6 +80,7 @@ def create_class():
         single_class = Class(
             owner_id = current_user.id,
             title = form.title.data,
+            headline = form.headline.data,
             description = form.description.data
         )
 
@@ -107,6 +108,7 @@ def update_class(id):
     if form.validate_on_submit:
         single_class.title = form.title.data
         single_class.description = form.description.data
+        single_class.headline = form.headline.data
 
         db.session.add(single_class)
         db.session.commit()

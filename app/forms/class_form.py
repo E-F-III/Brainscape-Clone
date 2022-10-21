@@ -8,6 +8,12 @@ def title_length(form, field):
     if len(title) > 100:
         raise ValidationError('Title must be atmost 100 characters')
 
+def headline_length(form, field):
+    headline = field.data
+
+    if len(headline) > 280:
+        raise ValidationError('Headline must be atmost 280 characters')
+
 def description_length(form, field):
     description = field.data
 
@@ -17,4 +23,5 @@ def description_length(form, field):
 
 class ClassForm(FlaskForm):
     title = StringField('title', validators=[DataRequired(), title_length])
+    title = StringField('headline', validators=[headline_length])
     description = StringField('description', validators=[description_length])
