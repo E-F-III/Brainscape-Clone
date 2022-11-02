@@ -6,6 +6,7 @@ import { getClassDecksThunk } from "../../../store/deck";
 
 import DecksSection from "./ClassDecksSection";
 import AboutSection from "./ClassAboutSection";
+import EditClassModal from "./EditClassModal";
 
 import './ClassPage.css'
 
@@ -27,7 +28,7 @@ function ClassPage() {
     }, [dispatch, classId])
 
     if (pathname === `/dashboard/${classId}`) {
-        return <Redirect to={`/dashboard/${classId}/about`}/>
+        return <Redirect to={`/dashboard/${classId}/about`} />
     }
 
     if (isLoaded && !singleClass) {
@@ -47,7 +48,7 @@ function ClassPage() {
     }
 
     return isLoaded && (
-    // return (
+        // return (
         <div>
             <div id="class-header">
                 <div id="class-header-img-container">
@@ -56,6 +57,7 @@ function ClassPage() {
                 <div id="class-header-main">
                     <div id="class-title-and-edit">
                         <h1 id="class-title">{singleClass.title}</h1>
+                        <EditClassModal classId={classId} />
                         {/* Feature 3: Class (edit)
                         <div></div> */}
                     </div>
