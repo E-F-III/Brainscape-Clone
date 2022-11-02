@@ -27,8 +27,8 @@ function AboutSection() {
 
     useEffect(() => {
         const errors = {}
-        if (headline.length > 280) errors['headline'] = 'Headline must be atmost 280 characters'
-        if (description.length > 5000) errors['description'] = 'Description must be atmost 5000 characters'
+        if (headline.length > 280) errors.headline = 'Headline must be atmost 280 characters'
+        if (description.length > 5000) errors.description = 'Description must be atmost 5000 characters'
 
         setValidationErrors(errors)
 
@@ -46,6 +46,7 @@ function AboutSection() {
     } else {
         headlineContent =
             <TextareaAutosize
+                maxRows={5}
                 id='headlineEditor'
                 className='textarea-input'
                 type='text'
@@ -63,6 +64,7 @@ function AboutSection() {
     } else {
         descriptionContent =
             <TextareaAutosize
+                maxRows={10}
                 id='descriptionEditor'
                 className='textarea-input'
                 type='text'
@@ -89,6 +91,8 @@ function AboutSection() {
     const handleUpdateHeadline = async e => {
         e.preventDefault()
 
+        if (validationErrors.headline) return
+
         const classData = {
             ...singleClass,
             headline
@@ -106,6 +110,8 @@ function AboutSection() {
 
     const handleUpdateDescription = async e => {
         e.preventDefault()
+
+        if (validationErrors.description) return
 
         const classData = {
             ...singleClass,
@@ -129,11 +135,12 @@ function AboutSection() {
                 <div className="class-segment-header">
                     <div className="class-header-container-left">
                         <div className="class-segment-heading">Headline</div>
-                        <div className='class-edit-buttons' style={{visibility: showHeadlineEditor ? 'hidden' : 'visible' }}>
+                        <div className='class-edit-buttons' style={{ visibility: showHeadlineEditor ? 'hidden' : 'visible' }}>
                             <ion-icon onClick={() => setShowHeadlineEditor(true)} name="pencil-outline"></ion-icon>
                         </div>
                     </div>
-                    <div className="class-header-container-right" style={{visibility: !showHeadlineEditor ? 'hidden' : 'visible' }}>
+                    <div className="class-header-container-right" style={{ visibility: !showHeadlineEditor ? 'hidden' : 'visible' }}>
+                        {validationErrors.headline && <div className="errors">{validationErrors.headline}</div>}
                         <div onClick={handleCancelHeadline} className="class-simple-text-button">Cancel</div>
                         <div onClick={handleUpdateHeadline} className="class-pill-button">Save Changes</div>
                     </div>
@@ -144,11 +151,12 @@ function AboutSection() {
                 <div className="class-segment-header">
                     <div className="class-header-container-left">
                         <div className="class-segment-heading">Description</div>
-                        <div className='class-edit-buttons' style={{visibility: showDescriptionEditor ? 'hidden' : 'visible' }}>
+                        <div className='class-edit-buttons' style={{ visibility: showDescriptionEditor ? 'hidden' : 'visible' }}>
                             <ion-icon onClick={() => setShowDescriptionEditor(true)} name="pencil-outline"></ion-icon>
                         </div>
                     </div>
-                    <div className="class-header-container-right" style={{visibility: !showDescriptionEditor ? 'hidden' : 'visible' }}>
+                    <div className="class-header-container-right" style={{ visibility: !showDescriptionEditor ? 'hidden' : 'visible' }}>
+                        {validationErrors.description && <div className="errors">{validationErrors.description}</div>}
                         <div onClick={handleCancelDescription} className="class-simple-text-button">Cancel</div>
                         <div onClick={handleUpdateDescription} className="class-pill-button">Save Changes</div>
                     </div>
