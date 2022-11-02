@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-import { createDeckThunk } from '../../../../store/deck';
+import { createClassThunk } from '../../../../store/class';
 
-import './DeckFormModal.css'
+import './ClassFormModal.css'
 
-const DeckForm = ({ classId, setShowModal }) => {
-    const dispatch = useDispatch();
+const ClassForm = ({ setShowModal }) => {
+    const dispatch = useDispatch()
+    const history = useHistory()
 
     const [validationErrors, setValidationErrors] = useState([]);
-    const [isSubmitted, setIsSubmitted] = useState(false)
+    const [isSubmitted, setIsSubmitted] = useState(false);
     const [title, setTitle] = useState('');
 
     useEffect(() => {
         const newValidationErrors = []
-
+        console.log(title)
         if (title.length === 0) newValidationErrors.push('Please provide a title')
         if (title.length > 50) newValidationErrors.push('Title must not exceed 50 characters')
 
@@ -28,24 +30,25 @@ const DeckForm = ({ classId, setShowModal }) => {
 
         if (validationErrors.length > 0) return
 
-        const deck = {
+        const newClass = {
             title,
             description: ""
         }
 
-        const payload = { deck, classId }
+        const payload = { newClass }
 
-        // const data = await dispatch(createDeckThunk(payload));
-        await dispatch(createDeckThunk(payload));
+        const data = await dispatch(createClassThunk(payload))
 
         setIsSubmitted(false)
         setShowModal(false)
-    };
+
+        history.push(`/dashboard/${data.id}/about`)
+    }
 
     return (
         <>
-            <div id='create-deck-header'>Create New Deck</div>
-            <div id='create-deck-subheader'>A Deck is a subset of Flashcards in a Class, similar to chapters in a book</div>
+            <div id='create-class-header'>Create New Class</div>
+            <div id='create-class-subheader'>A Class is a set of Flashcards, grouped into Decks</div>
             {isSubmitted && validationErrors.length > 0 && (
                 <div>
                     {validationErrors.map((error, ind) => <div key={ind} className='errors'>{error}</div>)}
@@ -60,7 +63,7 @@ const DeckForm = ({ classId, setShowModal }) => {
                         onChange={e => setTitle(e.target.value)}
                     />
                     <div className='field-caption'>
-                        Enter the title of your new deck above
+                        Enter the title of your new class above
                     </div>
                 </div>
                 <div className='modal-buttons'>
@@ -68,8 +71,7 @@ const DeckForm = ({ classId, setShowModal }) => {
                 </div>
             </form>
         </>
+    )
+}
 
-    );
-};
-
-export default DeckForm;
+export default ClassForm

@@ -35,7 +35,7 @@ const SignUpForm = () => {
     // if (/[^a-zA-Z \-]/.test(lastName)) newErrors.push('Last Name must contain alpha characters only (hyphens \'-\' and spaces \' \' are allowed)')
     // if (!firstName) newErrors.push('Please provide a first name')
     // if (!lastName) newErrors.push('Please provide a last name')
-    if (password != repeatPassword) newErrors.push('Passwords do not match')
+    if (password !== repeatPassword) newErrors.push('Passwords do not match')
 
     setValidationErrors(newErrors)
 
@@ -61,7 +61,8 @@ const SignUpForm = () => {
         return
       }
 
-      const data2 = await dispatch(createDemoClassThunk())
+      // const data2 = await dispatch(createDemoClassThunk())
+      await dispatch(createDemoClassThunk())
       setIsSubmitted(false)
       history.push('/dashboard')
     }

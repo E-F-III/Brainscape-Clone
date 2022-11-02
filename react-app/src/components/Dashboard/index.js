@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Switch, Route, useRouteMatch, useHistory, Redirect, useLocation } from "react-router-dom";
+import { Switch, Route, useRouteMatch, Redirect, useLocation } from "react-router-dom";
 
 import { getUserClassesThunk } from "../../store/class";
 
@@ -39,7 +39,8 @@ function Dashboard() {
             <DeckPage />
           </Route>
           <Route path={`${url}/:classId`}>
-            <ClassPage isLoaded={isLoaded}/>
+            <ClassPage />
+            {/* <ClassPage isLoaded={isLoaded}/> */}
           </Route>
           {/* <Route path={`${url}/`}>
             <h1>Select a class to view</h1>

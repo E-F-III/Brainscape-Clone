@@ -80,6 +80,7 @@ def create_class():
         single_class = Class(
             owner_id = current_user.id,
             title = form.title.data,
+            headline = form.headline.data,
             description = form.description.data
         )
 
@@ -89,3 +90,47 @@ def create_class():
         return single_class.to_dict()
 
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+
+# Edit a class
+@class_routes.route('/<int:id>', methods=["PUT"])
+@login_required
+def update_class(id):
+    single_class = Class.query.get(id)
+
+    if not single_class:
+        return {"message": "Class could not be found", "statusCode": 404}, 404
+
+    if single_class.owner_id != current_user.id:
+        return {"message": "Forbidden", "statusCode": 403}, 403
+
+    form = ClassForm()
+
+    if form.validate_on_submit:
+        single_class.title = form.title.data
+        single_class.description = form.description.data
+        single_class.headline = form.headline.data
+
+        db.session.add(single_class)
+        db.session.commit()
+
+        return single_class.to_dict()
+
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+
+
+# Delete a class
+@class_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
+def delete_class(id):
+    single_class = Class.query.get(id)
+
+    if not single_class:
+        return {"message": "Class could not be found", "statusCode": 404}, 404
+
+    if single_class.owner_id != current_user.id:
+        return {"message": "Forbidden", "statusCode": 403}, 403
+
+    db.session.delete(single_class)
+    db.session.commit()
+
+    return { "message": "Successfully deleted", "statusCode": 200 }, 200

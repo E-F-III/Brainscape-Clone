@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useHistory, useParams } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import './BrowseDeck.css'
 
 function BrowseDeck({ deckId, classId }) {
     const history = useHistory()
 
-    const deck = useSelector(state => state.decks[Number(deckId)])
     const cards = useSelector(state => state.cards)
     const cardList = Object.values(cards)
 
