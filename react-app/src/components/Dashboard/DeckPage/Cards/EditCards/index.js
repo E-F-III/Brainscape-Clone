@@ -6,7 +6,7 @@ import CardForm from './CardForm'
 import './EditCards.css'
 
 function EditCards({ deckId }) {
-    const deck = useSelector(state => state.decks[Number(deckId)])
+
     const cards = useSelector(state => state.cards)
     const cardList = Object.values(cards)
 

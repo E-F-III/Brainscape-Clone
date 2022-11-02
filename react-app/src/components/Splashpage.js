@@ -34,19 +34,19 @@ function Splashpage() {
                 // style={{ position: "absolute" }}
             >
                 <div className='splash-image-container'>
-                    <img src={simg1} />
+                    <img alt='splash-img-1' src={simg1} />
                 </div>
                 <div className='splash-image-container'>
-                    <img src={simg2} />
+                    <img alt='splash-img-2' src={simg2} />
                 </div>
                 <div className='splash-image-container'>
-                    <img src={simg3} />
+                    <img alt='splash-img-3' src={simg3} />
                 </div>
                 <div className='splash-image-container'>
-                    <img src={simg4} />
+                    <img alt='splash-img-4' src={simg4} />
                 </div>
                 <div className='splash-image-container'>
-                    <img src={simg5} />
+                    <img alt='splash-img-5' src={simg5} />
                 </div>
             </Carousel>
 

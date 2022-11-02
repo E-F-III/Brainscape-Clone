@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { updateDeckThunk } from '../../../../store/deck';
+import { updateClassThunk } from '../../../../store/class';
 
-import './EditDeckModal.css'
+import './EditClassModal.css';
 
-const EditDeckForm = ({ deckId, setShowModal }) => {
+const EditClassForm = ({ classId, setShowModal }) => {
     const dispatch = useDispatch()
 
-    const deck = useSelector(state => state.decks[Number(deckId)])
+    const singleClass = useSelector(state => state.classes[Number(classId)])
 
-    const [title, setTitle] = useState(deck.title)
-    const [description, setDescription] = useState(deck.description || '')
+    const [title, setTitle] = useState(singleClass.title)
 
     const [validationErrors, setValidationErrors] = useState([])
     const [isSubmitted, setIsSubmitted] = useState(false)
@@ -22,10 +21,8 @@ const EditDeckForm = ({ deckId, setShowModal }) => {
         if (title.length === 0) newValidationErrors.push('Please provide a title')
         if (title.length > 50) newValidationErrors.push('Title must not exceed 50 characters')
 
-        if (description.length > 5000) newValidationErrors.push('Description must not exceed 5000 characters')
-
         setValidationErrors(newValidationErrors)
-    }, [title, description])
+    }, [title])
 
     const handleSubmit = async e => {
         e.preventDefault()
@@ -34,31 +31,29 @@ const EditDeckForm = ({ deckId, setShowModal }) => {
 
         if (validationErrors.length > 0) return
 
-        const deckData = {
-            title,
-            description
+        const classData = {
+            ...singleClass,
+            title
         }
 
-        const payload = { deckId: deck.id, deckData }
+        const payload = { classId, classData }
 
-        // const data = await dispatch(updateDeckThunk(payload))
-        await dispatch(updateDeckThunk(payload))
+        await dispatch(updateClassThunk(payload))
 
-        setIsSubmitted(false)
         setShowModal(false)
     }
 
     return (
         <div>
-            <div id='edit-deck-header'>
-                Edit Deck
+            <div id='edit-class-header'>
+                Edit Class Title
             </div>
             {isSubmitted && validationErrors.length > 0 && (
                 <div>
                     {validationErrors.map((error, ind) => <div key={ind} className='errors'>{error}</div>)}
                 </div>
             )}
-            <form onSubmit={handleSubmit}>
+               <form onSubmit={handleSubmit}>
                 <div className='text-field'>
                     <div className='field-label'>Title</div>
                     <input
@@ -70,24 +65,13 @@ const EditDeckForm = ({ deckId, setShowModal }) => {
                         onChange={e => setTitle(e.target.value)}
                     />
                 </div>
-                <div className='text-field'>
-                    <div className='field-label'>Descrtiption</div>
-                    <textarea
-                        className='textarea-input'
-                        type='text'
-                        name='description'
-                        value={description}
-                        onChange={e => setDescription(e.target.value)}
-                    />
-                </div>
                 <div className='modal-buttons'>
                     <div onClick={() => setShowModal(false)} className="pill-button ">Cancel</div>
                     <div onClick={handleSubmit} className="pill-button modal-button">Save</div>
                 </div>
             </form>
         </div>
-
     )
 }
 
-export default EditDeckForm
+export default EditClassForm;
